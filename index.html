@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCraft服务器官网</title>
     <style>
-        /* 不是为什么官网页面还没更新？？我真不行了 */
-        /* qwq */
+        /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -493,7 +492,8 @@
     }
 
     function fetchStatus() {
-        fetch('https://api.mcsrvstat.us/3/mc.aach.top')
+        // 使用 mcstatus.io 的新接口
+        fetch('https://api.mcstatus.io/v2/status/java/mc.aach.top')
             .then(function (r) {
                 if (!r.ok) throw new Error('HTTP ' + r.status);
                 return r.json();
@@ -503,9 +503,10 @@
                     setOffline('服务器离线');
                     return;
                 }
+                // mcstatus.io 的数据结构
                 var online = (data.players && data.players.online) || 0;
                 var max = (data.players && data.players.max) || 0;
-                var ver = (data.version) || '未知';
+                var ver = (data.version && data.version.name_clean) || '未知';
 
                 dotEl.className = 'status-dot online';
                 textEl.textContent = '在线';
@@ -513,7 +514,8 @@
                     ' &nbsp;·&nbsp; 版本：<strong>' + ver + '</strong>';
                 drawRing(online, max);
             })
-            .catch(function () {
+            .catch(function (err) {
+                console.error('Status fetch error:', err);
                 setOffline('状态获取失败');
             });
     }
