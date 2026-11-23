@@ -9,14 +9,20 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: #1a1a1a;
+            /* 背景图设置：由于图片在根目录，直接用 /bj.png 或 bj.png */
+            background-image: url('/bj.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #1a1a1a; /* 图片未加载时的底色 */
+            
             color: #d0d0d0;
             font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
             line-height: 1.7;
             padding: 0 16px 40px;
         }
 
-        /* 窄容器，避免大屏上过宽 */
+        /* 窄容器 */
         .wrap {
             max-width: 720px;
             margin: 0 auto;
@@ -26,8 +32,9 @@
         .uptime {
             padding: 48px 0 32px;
             text-align: left;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 边框半透明 */
             margin-bottom: 32px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* 给文字加阴影，防止背景图太亮看不清 */
         }
 
         .uptime h1 {
@@ -47,7 +54,7 @@
 
         .uptime .sub {
             font-size: 0.85rem;
-            color: #777;
+            color: #ccc; /* 提亮一点 */
             margin-top: 6px;
         }
 
@@ -59,17 +66,19 @@
         .sec-title {
             font-size: 1rem;
             font-weight: 600;
-            color: #aaa;
+            color: #fff;
             letter-spacing: 1px;
             margin-bottom: 14px;
             padding-bottom: 6px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
         /* ---------- 服务器状态 ---------- */
         .status-card {
-            background: #212121;
-            border: 1px solid #2e2e2e;
+            background: rgba(33, 33, 33, 0.85); /* 透明UI */
+            backdrop-filter: blur(4px); /* 背景模糊，增强质感 */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
             padding: 18px 20px;
             display: flex;
@@ -130,10 +139,10 @@
             font-family: "Consolas", "Courier New", monospace;
             color: #9ae850;
             font-size: 0.9rem;
-            background: #1a1a1a;
+            background: rgba(26, 26, 26, 0.8);
             padding: 2px 8px;
             border-radius: 3px;
-            border: 1px solid #2e2e2e;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
             transition: border-color 0.15s;
         }
@@ -142,18 +151,19 @@
 
         .status-meta {
             font-size: 0.82rem;
-            color: #777;
+            color: #aaa;
         }
 
         .status-meta strong {
-            color: #bbb;
+            color: #ddd;
             font-weight: 500;
         }
 
         .status-note {
             font-size: 0.75rem;
-            color: #555;
+            color: #999;
             margin-top: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
 
         /* ---------- 加入我们 ---------- */
@@ -168,8 +178,9 @@
             align-items: center;
             gap: 8px;
             padding: 10px 18px;
-            background: #212121;
-            border: 1px solid #2e2e2e;
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             color: #ccc;
             text-decoration: none;
@@ -179,14 +190,14 @@
 
         .link-item:hover {
             border-color: #7ED321;
-            background: #252525;
+            background: rgba(45, 45, 45, 0.9);
             color: #fff;
         }
 
         .link-item .tag {
             font-size: 0.7rem;
-            color: #666;
-            border: 1px solid #333;
+            color: #888;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 0 5px;
             border-radius: 2px;
             line-height: 1.4;
@@ -197,13 +208,13 @@
             display: flex;
             gap: 4px;
             margin-bottom: 16px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .tab-btn {
             background: none;
             border: none;
-            color: #777;
+            color: #999;
             font-size: 0.88rem;
             padding: 8px 16px;
             cursor: pointer;
@@ -213,10 +224,11 @@
             transition: color 0.15s, border-color 0.15s;
         }
 
-        .tab-btn:hover { color: #aaa; }
+        .tab-btn:hover { color: #ccc; }
         .tab-btn.active {
             color: #9ae850;
             border-bottom-color: #7ED321;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
         .game-panel { display: none; }
@@ -224,8 +236,9 @@
 
         .game-hint {
             font-size: 0.78rem;
-            color: #666;
+            color: #aaa;
             margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
 
         /* 五子棋 */
@@ -233,7 +246,7 @@
             display: block;
             margin: 0 auto;
             background: #2a221b;
-            border: 2px solid #3d3024;
+            border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             max-width: 100%;
             height: auto;
@@ -252,10 +265,11 @@
 
         .gomoku-turn {
             font-size: 0.85rem;
-            color: #aaa;
+            color: #ccc;
             display: flex;
             align-items: center;
             gap: 6px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
 
         .turn-dot {
@@ -267,8 +281,8 @@
         }
 
         .btn-sm {
-            background: #2a2a2a;
-            border: 1px solid #3a3a3a;
+            background: rgba(42, 42, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #bbb;
             padding: 5px 14px;
             border-radius: 4px;
@@ -276,6 +290,7 @@
             cursor: pointer;
             font-family: inherit;
             transition: border-color 0.15s;
+            backdrop-filter: blur(4px);
         }
 
         .btn-sm:hover { border-color: #7ED321; color: #ddd; }
@@ -285,7 +300,7 @@
             display: block;
             margin: 0 auto;
             background: #141414;
-            border: 2px solid #2e2e2e;
+            border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             max-width: 100%;
             height: auto;
@@ -302,7 +317,8 @@
 
         .snake-score {
             font-size: 0.85rem;
-            color: #aaa;
+            color: #ccc;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
 
         .snake-score span {
@@ -314,15 +330,16 @@
         footer {
             margin-top: 48px;
             padding-top: 20px;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.75rem;
-            color: #555;
+            color: #999;
             text-align: center;
             line-height: 1.9;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
         footer .disclaimer {
-            color: #4a4a4a;
+            color: #777;
         }
 
         /* 响应式微调 */
@@ -419,7 +436,7 @@
 
     <!-- 页脚 -->
     <footer>
-        <div>MCraft 服务器 · mc.aach.top</div>
+        <div>Copyright © 2026 MCraft Server.All Rights Reserved.</div>
         <div class="disclaimer">本网站完全由 AI 开发，不喜勿喷。</div>
     </footer>
 
@@ -466,7 +483,7 @@
         // 底环
         ctx.beginPath();
         ctx.arc(cx, cy, r, 0, Math.PI * 2);
-        ctx.strokeStyle = '#2e2e2e';
+        ctx.strokeStyle = '#3a3a3a';
         ctx.lineWidth = 7;
         ctx.stroke();
 
@@ -481,7 +498,7 @@
         }
 
         ringLabel.textContent = max > 0 ? Math.round(pct * 100) + '%' : '—';
-        ringLabel.style.color = pct > 0 ? '#9ae850' : '#666';
+        ringLabel.style.color = pct > 0 ? '#9ae850' : '#888';
     }
 
     function setOffline(msg) {
@@ -492,7 +509,6 @@
     }
 
     function fetchStatus() {
-        // 使用 mcstatus.io 的新接口
         fetch('https://api.mcstatus.io/v2/status/java/mc.aach.top')
             .then(function (r) {
                 if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -503,7 +519,6 @@
                     setOffline('服务器离线');
                     return;
                 }
-                // mcstatus.io 的数据结构
                 var online = (data.players && data.players.online) || 0;
                 var max = (data.players && data.players.max) || 0;
                 var ver = (data.version && data.version.name_clean) || '未知';
@@ -514,14 +529,12 @@
                     ' &nbsp;·&nbsp; 版本：<strong>' + ver + '</strong>';
                 drawRing(online, max);
             })
-            .catch(function (err) {
-                console.error('Status fetch error:', err);
+            .catch(function () {
                 setOffline('状态获取失败');
             });
     }
 
     fetchStatus();
-    // 每 60 秒刷新一次，避免频繁请求
     setInterval(fetchStatus, 60000);
 })();
 
@@ -559,10 +572,10 @@
     var resetBtn = document.getElementById('gomokuReset');
 
     var SIZE = 15;
-    var CELL = canvas.width / (SIZE + 1); // 留出边距
+    var CELL = canvas.width / (SIZE + 1);
     var PAD = CELL;
     var board = [];
-    var current = 1; // 1 黑，2 白
+    var current = 1;
     var gameOver = false;
 
     function initBoard() {
@@ -574,26 +587,21 @@
 
     function drawBoard() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // 木色底已由 CSS 提供，这里画线
         ctx.strokeStyle = '#5a4a3a';
         ctx.lineWidth = 1;
 
         for (var i = 0; i < SIZE; i++) {
             var pos = PAD + i * CELL;
-            // 竖线
             ctx.beginPath();
             ctx.moveTo(pos, PAD);
             ctx.lineTo(pos, PAD + (SIZE - 1) * CELL);
             ctx.stroke();
-            // 横线
             ctx.beginPath();
             ctx.moveTo(PAD, pos);
             ctx.lineTo(PAD + (SIZE - 1) * CELL, pos);
             ctx.stroke();
         }
 
-        // 星位（天元 + 四星）
         var stars = [[7,7],[3,3],[3,11],[11,3],[11,11]];
         ctx.fillStyle = '#5a4a3a';
         stars.forEach(function (p) {
@@ -604,7 +612,6 @@
             ctx.fill();
         });
 
-        // 棋子
         for (var r = 0; r < SIZE; r++) {
             for (var c = 0; c < SIZE; c++) {
                 if (board[r][c] === 0) continue;
@@ -692,8 +699,6 @@
     }
 
     resetBtn.addEventListener('click', reset);
-
-    // 初始化
     initBoard();
     drawBoard();
     updateTurnUI();
@@ -712,10 +717,9 @@
     var resetBtn = document.getElementById('snakeReset');
 
     var GRID = 20;
-    var CELL = canvas.width / GRID; // 20px
+    var CELL = canvas.width / GRID;
     var snake, dir, nextDir, food, score, running, timer;
 
-    // 最高分
     var best = 0;
     try { best = parseInt(localStorage.getItem('mc_snake_best')) || 0; } catch (e) {}
     bestEl.textContent = best;
@@ -744,11 +748,9 @@
     }
 
     function draw() {
-        // 背景
         ctx.fillStyle = '#141414';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // 网格（淡）
         ctx.strokeStyle = '#1e1e1e';
         ctx.lineWidth = 0.5;
         for (var i = 1; i < GRID; i++) {
@@ -762,13 +764,11 @@
             ctx.stroke();
         }
 
-        // 食物
         ctx.fillStyle = '#d9534f';
         ctx.beginPath();
         ctx.arc(food.x * CELL + CELL/2, food.y * CELL + CELL/2, CELL*0.35, 0, Math.PI*2);
         ctx.fill();
 
-        // 蛇
         for (var i = 0; i < snake.length; i++) {
             var s = snake[i];
             var x = s.x * CELL, y = s.y * CELL;
@@ -781,19 +781,16 @@
     function step() {
         if (!running) return;
 
-        // 方向有效性
         if (nextDir.x !== -dir.x || nextDir.y !== -dir.y) {
             dir = {x: nextDir.x, y: nextDir.y};
         }
 
         var head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
 
-        // 撞墙
         if (head.x < 0 || head.x >= GRID || head.y < 0 || head.y >= GRID) {
             gameOver();
             return;
         }
-        // 撞自己
         if (snake.some(function (s) { return s.x === head.x && s.y === head.y; })) {
             gameOver();
             return;
@@ -853,10 +850,8 @@
         init();
     }
 
-    // 键盘
     document.addEventListener('keydown', function (e) {
         var key = e.key;
-        // 只在贪吃蛇标签激活时响应
         if (!document.getElementById('panel-snake').classList.contains('active')) return;
 
         if (key === ' ' || key === 'Space') {
@@ -873,12 +868,10 @@
 
         if (d) {
             e.preventDefault();
-            // 禁止 180 度掉头
             if (d.x !== -dir.x || d.y !== -dir.y) {
                 nextDir = d;
             }
             if (!running && startBtn.textContent !== '暂停') {
-                // 按方向键也能开始
                 if (startBtn.textContent === '重新开始') init();
                 running = true;
                 startBtn.textContent = '暂停';
