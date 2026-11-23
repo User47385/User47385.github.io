@@ -1,6 +1,896 @@
 <!DOCTYPE html>
-<html>
-  <title>MCraft Web Test!</title>
-  <p>Hello!</p>
-  <img src=66436B306AFEC01BD11481288CCDA740.png>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCraft服务器官网</title>
+    <style>
+        /* 基础重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #1a1a1a;
+            color: #d0d0d0;
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            line-height: 1.7;
+            padding: 0 16px 40px;
+        }
+
+        /* 窄容器，避免大屏上过宽 */
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* ---------- 顶部天数 ---------- */
+        .uptime {
+            padding: 48px 0 32px;
+            text-align: left;
+            border-bottom: 1px solid #2a2a2a;
+            margin-bottom: 32px;
+        }
+
+        .uptime h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #7ED321; /* Minecraft 草绿 */
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .uptime h1 span {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #9ae850;
+            margin: 0 2px;
+        }
+
+        .uptime .sub {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 6px;
+        }
+
+        /* ---------- 通用区块 ---------- */
+        section {
+            margin-bottom: 36px;
+        }
+
+        .sec-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #aaa;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        /* ---------- 服务器状态 ---------- */
+        .status-card {
+            background: #212121;
+            border: 1px solid #2e2e2e;
+            border-radius: 6px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .status-ring-wrap {
+            position: relative;
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+        }
+
+        .status-ring-wrap canvas {
+            width: 72px;
+            height: 72px;
+            display: block;
+        }
+
+        .ring-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .status-info {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .status-line {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #666;
+            flex-shrink: 0;
+        }
+
+        .status-dot.online { background: #7ED321; box-shadow: 0 0 6px rgba(126, 211, 33, 0.5); }
+        .status-dot.offline { background: #d9534f; }
+
+        .status-addr {
+            font-family: "Consolas", "Courier New", monospace;
+            color: #9ae850;
+            font-size: 0.9rem;
+            background: #1a1a1a;
+            padding: 2px 8px;
+            border-radius: 3px;
+            border: 1px solid #2e2e2e;
+            cursor: pointer;
+            transition: border-color 0.15s;
+        }
+
+        .status-addr:hover { border-color: #555; }
+
+        .status-meta {
+            font-size: 0.82rem;
+            color: #777;
+        }
+
+        .status-meta strong {
+            color: #bbb;
+            font-weight: 500;
+        }
+
+        .status-note {
+            font-size: 0.75rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* ---------- 加入我们 ---------- */
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .link-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: #212121;
+            border: 1px solid #2e2e2e;
+            border-radius: 5px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .link-item:hover {
+            border-color: #7ED321;
+            background: #252525;
+            color: #fff;
+        }
+
+        .link-item .tag {
+            font-size: 0.7rem;
+            color: #666;
+            border: 1px solid #333;
+            padding: 0 5px;
+            border-radius: 2px;
+            line-height: 1.4;
+        }
+
+        /* ---------- 游戏区 ---------- */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #777;
+            font-size: 0.88rem;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            font-family: inherit;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .tab-btn:hover { color: #aaa; }
+        .tab-btn.active {
+            color: #9ae850;
+            border-bottom-color: #7ED321;
+        }
+
+        .game-panel { display: none; }
+        .game-panel.active { display: block; }
+
+        .game-hint {
+            font-size: 0.78rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* 五子棋 */
+        #gomokuCanvas {
+            display: block;
+            margin: 0 auto;
+            background: #2a221b;
+            border: 2px solid #3d3024;
+            border-radius: 4px;
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .gomoku-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .gomoku-turn {
+            font-size: 0.85rem;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .turn-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid #555;
+        }
+
+        .btn-sm {
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            color: #bbb;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: border-color 0.15s;
+        }
+
+        .btn-sm:hover { border-color: #7ED321; color: #ddd; }
+
+        /* 贪吃蛇 */
+        #snakeCanvas {
+            display: block;
+            margin: 0 auto;
+            background: #141414;
+            border: 2px solid #2e2e2e;
+            border-radius: 4px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .snake-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .snake-score {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .snake-score span {
+            color: #9ae850;
+            font-weight: 600;
+        }
+
+        /* ---------- 页脚 ---------- */
+        footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
+            font-size: 0.75rem;
+            color: #555;
+            text-align: center;
+            line-height: 1.9;
+        }
+
+        footer .disclaimer {
+            color: #4a4a4a;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .uptime h1 { font-size: 1.5rem; }
+            .uptime h1 span { font-size: 2.1rem; }
+            .status-card { padding: 14px 16px; gap: 14px; }
+            .links { flex-direction: column; }
+            .link-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <!-- 顶部：稳定运行天数 -->
+    <header class="uptime">
+        <h1>服务器已稳定运行 <span id="daysCount">—</span> 天！</h1>
+        <div class="sub">自 2026 年 3 月 22 日起，仍在继续。</div>
+    </header>
+
+    <!-- 服务器状态 -->
+    <section>
+        <div class="sec-title">服务器状态</div>
+        <div class="status-card">
+            <div class="status-ring-wrap">
+                <canvas id="ringCanvas" width="72" height="72"></canvas>
+                <div class="ring-label" id="ringLabel">—</div>
+            </div>
+            <div class="status-info">
+                <div class="status-line">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">正在获取状态…</span>
+                </div>
+                <div style="margin: 6px 0;">
+                    <span class="status-addr" id="serverAddr" title="点击复制地址">mc.aach.top</span>
+                </div>
+                <div class="status-meta" id="statusMeta">
+                    玩家数：— / — &nbsp;·&nbsp; 版本：—
+                </div>
+            </div>
+        </div>
+        <div class="status-note">状态数据来自公开 API，可能有 1–2 分钟延迟。</div>
+    </section>
+
+    <!-- 加入我们 -->
+    <section>
+        <div class="sec-title">加入我们</div>
+        <div class="links">
+            <a class="link-item" href="https://space.bilibili.com/3546942575478947?spm_id_from=333.40164.0.0" target="_blank" rel="noopener noreferrer">
+                Bilibili
+                <span class="tag">视频</span>
+            </a>
+            <a class="link-item" href="https://qm.qq.com/cgi-bin/qm/qr?k=RoM2_DCrIUTnKMe-R2A-8MHvZVnI10Le&jump_from=webapi&authKey=PfL/1h9gmo0ecQPOaQTih21a6IHdrPreLiCSjHaIckvBZds7G5Z54LaAr4CR/HIP" target="_blank" rel="noopener noreferrer">
+                <img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="MCraft | 官方交流群" title="MCraft | 官方交流群" style="height: 24px; display: block;">
+            </a>
+        </div>
+    </section>
+
+    <!-- 游戏区 -->
+    <section>
+        <div class="sec-title">游戏区</div>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="gomoku">双人五子棋</button>
+            <button class="tab-btn" data-tab="snake">贪吃蛇</button>
+        </div>
+
+        <!-- 五子棋面板 -->
+        <div class="game-panel active" id="panel-gomoku">
+            <div class="game-hint">两人共用一台设备，黑先白后，点击交叉点落子。先连成五子者胜。</div>
+            <canvas id="gomokuCanvas" width="480" height="480"></canvas>
+            <div class="gomoku-bar">
+                <div class="gomoku-turn">
+                    <span class="turn-dot" id="turnDot" style="background:#111;"></span>
+                    <span id="turnText">黑棋回合</span>
+                </div>
+                <button class="btn-sm" id="gomokuReset">重新开始</button>
+            </div>
+        </div>
+
+        <!-- 贪吃蛇面板 -->
+        <div class="game-panel" id="panel-snake">
+            <div class="game-hint">方向键 / WASD 控制，空格开始或暂停。</div>
+            <canvas id="snakeCanvas" width="400" height="400"></canvas>
+            <div class="snake-bar">
+                <div class="snake-score">分数 <span id="snakeScore">0</span></div>
+                <div class="snake-score">最高 <span id="snakeBest">0</span></div>
+                <button class="btn-sm" id="snakeStart">开始</button>
+                <button class="btn-sm" id="snakeReset">重置</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div>MCraft 服务器 · mc.aach.top</div>
+        <div class="disclaimer">本网站完全由 AI 开发，不喜勿喷。</div>
+    </footer>
+
+</div>
+
+<script>
+/* ============================================================
+   1. 稳定运行天数
+   ============================================================ */
+(function () {
+    var start = new Date(2026, 2, 22); // 月份从 0 开始，2 = 三月
+    var now = new Date();
+    var diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    if (diff < 0) diff = 0;
+    document.getElementById('daysCount').textContent = diff;
+})();
+
+
+/* ============================================================
+   2. 服务器状态 + 环形图
+   ============================================================ */
+(function () {
+    var addrEl = document.getElementById('serverAddr');
+    var dotEl = document.getElementById('statusDot');
+    var textEl = document.getElementById('statusText');
+    var metaEl = document.getElementById('statusMeta');
+    var ringLabel = document.getElementById('ringLabel');
+    var canvas = document.getElementById('ringCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // 复制地址
+    addrEl.addEventListener('click', function () {
+        navigator.clipboard.writeText('mc.aach.top').then(function () {
+            addrEl.textContent = '已复制';
+            setTimeout(function () { addrEl.textContent = 'mc.aach.top'; }, 1200);
+        }).catch(function () {});
+    });
+
+    function drawRing(online, max) {
+        var pct = (max > 0) ? Math.min(online / max, 1) : 0;
+        var w = 72, h = 72, cx = 36, cy = 36, r = 28;
+        ctx.clearRect(0, 0, w, h);
+
+        // 底环
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.strokeStyle = '#2e2e2e';
+        ctx.lineWidth = 7;
+        ctx.stroke();
+
+        // 进度环
+        if (pct > 0) {
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * pct);
+            ctx.strokeStyle = '#7ED321';
+            ctx.lineWidth = 7;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+        }
+
+        ringLabel.textContent = max > 0 ? Math.round(pct * 100) + '%' : '—';
+        ringLabel.style.color = pct > 0 ? '#9ae850' : '#666';
+    }
+
+    function setOffline(msg) {
+        dotEl.className = 'status-dot offline';
+        textEl.textContent = msg || '离线 / 获取失败';
+        metaEl.innerHTML = '玩家数：— / — &nbsp;·&nbsp; 版本：—';
+        drawRing(0, 0);
+    }
+
+    function fetchStatus() {
+        fetch('https://api.mcsrvstat.us/3/mc.aach.top')
+            .then(function (r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            })
+            .then(function (data) {
+                if (!data || data.online !== true) {
+                    setOffline('服务器离线');
+                    return;
+                }
+                var online = (data.players && data.players.online) || 0;
+                var max = (data.players && data.players.max) || 0;
+                var ver = (data.version) || '未知';
+
+                dotEl.className = 'status-dot online';
+                textEl.textContent = '在线';
+                metaEl.innerHTML = '玩家数：<strong>' + online + '</strong> / ' + max +
+                    ' &nbsp;·&nbsp; 版本：<strong>' + ver + '</strong>';
+                drawRing(online, max);
+            })
+            .catch(function () {
+                setOffline('状态获取失败');
+            });
+    }
+
+    fetchStatus();
+    // 每 60 秒刷新一次，避免频繁请求
+    setInterval(fetchStatus, 60000);
+})();
+
+
+/* ============================================================
+   3. 标签页切换
+   ============================================================ */
+(function () {
+    var btns = document.querySelectorAll('.tab-btn');
+    var panels = {
+        gomoku: document.getElementById('panel-gomoku'),
+        snake: document.getElementById('panel-snake')
+    };
+    btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            btns.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            Object.keys(panels).forEach(function (k) {
+                panels[k].classList.remove('active');
+            });
+            panels[btn.dataset.tab].classList.add('active');
+        });
+    });
+})();
+
+
+/* ============================================================
+   4. 双人五子棋（同机轮流）
+   ============================================================ */
+(function () {
+    var canvas = document.getElementById('gomokuCanvas');
+    var ctx = canvas.getContext('2d');
+    var turnDot = document.getElementById('turnDot');
+    var turnText = document.getElementById('turnText');
+    var resetBtn = document.getElementById('gomokuReset');
+
+    var SIZE = 15;
+    var CELL = canvas.width / (SIZE + 1); // 留出边距
+    var PAD = CELL;
+    var board = [];
+    var current = 1; // 1 黑，2 白
+    var gameOver = false;
+
+    function initBoard() {
+        board = [];
+        for (var i = 0; i < SIZE; i++) {
+            board.push(new Array(SIZE).fill(0));
+        }
+    }
+
+    function drawBoard() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 木色底已由 CSS 提供，这里画线
+        ctx.strokeStyle = '#5a4a3a';
+        ctx.lineWidth = 1;
+
+        for (var i = 0; i < SIZE; i++) {
+            var pos = PAD + i * CELL;
+            // 竖线
+            ctx.beginPath();
+            ctx.moveTo(pos, PAD);
+            ctx.lineTo(pos, PAD + (SIZE - 1) * CELL);
+            ctx.stroke();
+            // 横线
+            ctx.beginPath();
+            ctx.moveTo(PAD, pos);
+            ctx.lineTo(PAD + (SIZE - 1) * CELL, pos);
+            ctx.stroke();
+        }
+
+        // 星位（天元 + 四星）
+        var stars = [[7,7],[3,3],[3,11],[11,3],[11,11]];
+        ctx.fillStyle = '#5a4a3a';
+        stars.forEach(function (p) {
+            var x = PAD + p[1] * CELL;
+            var y = PAD + p[0] * CELL;
+            ctx.beginPath();
+            ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        // 棋子
+        for (var r = 0; r < SIZE; r++) {
+            for (var c = 0; c < SIZE; c++) {
+                if (board[r][c] === 0) continue;
+                var x = PAD + c * CELL;
+                var y = PAD + r * CELL;
+                var rad = CELL * 0.4;
+                var g = ctx.createRadialGradient(x - rad*0.3, y - rad*0.3, rad*0.1, x, y, rad);
+                if (board[r][c] === 1) {
+                    g.addColorStop(0, '#555');
+                    g.addColorStop(1, '#0a0a0a');
+                } else {
+                    g.addColorStop(0, '#fff');
+                    g.addColorStop(1, '#c8c8c8');
+                }
+                ctx.beginPath();
+                ctx.arc(x, y, rad, 0, Math.PI * 2);
+                ctx.fillStyle = g;
+                ctx.fill();
+                ctx.strokeStyle = board[r][c] === 1 ? '#000' : '#999';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+    }
+
+    function updateTurnUI() {
+        if (gameOver) return;
+        turnDot.style.background = current === 1 ? '#111' : '#eee';
+        turnDot.style.borderColor = current === 1 ? '#444' : '#aaa';
+        turnText.textContent = current === 1 ? '黑棋回合' : '白棋回合';
+    }
+
+    function checkWin(r, c, player) {
+        var dirs = [[0,1],[1,0],[1,1],[1,-1]];
+        for (var d = 0; d < dirs.length; d++) {
+            var count = 1;
+            for (var s = -1; s <= 1; s += 2) {
+                var nr = r + dirs[d][0] * s;
+                var nc = c + dirs[d][1] * s;
+                while (nr >= 0 && nr < SIZE && nc >= 0 && nc < SIZE && board[nr][nc] === player) {
+                    count++;
+                    nr += dirs[d][0] * s;
+                    nc += dirs[d][1] * s;
+                }
+            }
+            if (count >= 5) return true;
+        }
+        return false;
+    }
+
+    canvas.addEventListener('click', function (e) {
+        if (gameOver) return;
+        var rect = canvas.getBoundingClientRect();
+        var scaleX = canvas.width / rect.width;
+        var scaleY = canvas.height / rect.height;
+        var mx = (e.clientX - rect.left) * scaleX;
+        var my = (e.clientY - rect.top) * scaleY;
+
+        var c = Math.round((mx - PAD) / CELL);
+        var r = Math.round((my - PAD) / CELL);
+        if (r < 0 || r >= SIZE || c < 0 || c >= SIZE) return;
+        if (board[r][c] !== 0) return;
+
+        board[r][c] = current;
+        drawBoard();
+
+        if (checkWin(r, c, current)) {
+            gameOver = true;
+            turnText.textContent = (current === 1 ? '黑棋' : '白棋') + '获胜！';
+            turnDot.style.background = 'transparent';
+            turnDot.style.borderColor = 'transparent';
+            return;
+        }
+
+        current = current === 1 ? 2 : 1;
+        updateTurnUI();
+    });
+
+    function reset() {
+        initBoard();
+        current = 1;
+        gameOver = false;
+        drawBoard();
+        updateTurnUI();
+    }
+
+    resetBtn.addEventListener('click', reset);
+
+    // 初始化
+    initBoard();
+    drawBoard();
+    updateTurnUI();
+})();
+
+
+/* ============================================================
+   5. 贪吃蛇
+   ============================================================ */
+(function () {
+    var canvas = document.getElementById('snakeCanvas');
+    var ctx = canvas.getContext('2d');
+    var scoreEl = document.getElementById('snakeScore');
+    var bestEl = document.getElementById('snakeBest');
+    var startBtn = document.getElementById('snakeStart');
+    var resetBtn = document.getElementById('snakeReset');
+
+    var GRID = 20;
+    var CELL = canvas.width / GRID; // 20px
+    var snake, dir, nextDir, food, score, running, timer;
+
+    // 最高分
+    var best = 0;
+    try { best = parseInt(localStorage.getItem('mc_snake_best')) || 0; } catch (e) {}
+    bestEl.textContent = best;
+
+    function init() {
+        snake = [{x: 10, y: 10}, {x: 9, y: 10}, {x: 8, y: 10}];
+        dir = {x: 1, y: 0};
+        nextDir = {x: 1, y: 0};
+        score = 0;
+        running = false;
+        scoreEl.textContent = 0;
+        placeFood();
+        draw();
+        startBtn.textContent = '开始';
+    }
+
+    function placeFood() {
+        while (true) {
+            var f = {
+                x: Math.floor(Math.random() * GRID),
+                y: Math.floor(Math.random() * GRID)
+            };
+            var hit = snake.some(function (s) { return s.x === f.x && s.y === f.y; });
+            if (!hit) { food = f; return; }
+        }
+    }
+
+    function draw() {
+        // 背景
+        ctx.fillStyle = '#141414';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 网格（淡）
+        ctx.strokeStyle = '#1e1e1e';
+        ctx.lineWidth = 0.5;
+        for (var i = 1; i < GRID; i++) {
+            ctx.beginPath();
+            ctx.moveTo(i * CELL, 0);
+            ctx.lineTo(i * CELL, canvas.height);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(0, i * CELL);
+            ctx.lineTo(canvas.width, i * CELL);
+            ctx.stroke();
+        }
+
+        // 食物
+        ctx.fillStyle = '#d9534f';
+        ctx.beginPath();
+        ctx.arc(food.x * CELL + CELL/2, food.y * CELL + CELL/2, CELL*0.35, 0, Math.PI*2);
+        ctx.fill();
+
+        // 蛇
+        for (var i = 0; i < snake.length; i++) {
+            var s = snake[i];
+            var x = s.x * CELL, y = s.y * CELL;
+            var pad = i === 0 ? 1 : 2;
+            ctx.fillStyle = i === 0 ? '#9ae850' : '#7ED321';
+            ctx.fillRect(x + pad, y + pad, CELL - pad*2, CELL - pad*2);
+        }
+    }
+
+    function step() {
+        if (!running) return;
+
+        // 方向有效性
+        if (nextDir.x !== -dir.x || nextDir.y !== -dir.y) {
+            dir = {x: nextDir.x, y: nextDir.y};
+        }
+
+        var head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
+
+        // 撞墙
+        if (head.x < 0 || head.x >= GRID || head.y < 0 || head.y >= GRID) {
+            gameOver();
+            return;
+        }
+        // 撞自己
+        if (snake.some(function (s) { return s.x === head.x && s.y === head.y; })) {
+            gameOver();
+            return;
+        }
+
+        snake.unshift(head);
+
+        if (head.x === food.x && head.y === food.y) {
+            score += 10;
+            scoreEl.textContent = score;
+            if (score > best) {
+                best = score;
+                bestEl.textContent = best;
+                try { localStorage.setItem('mc_snake_best', best); } catch (e) {}
+            }
+            placeFood();
+        } else {
+            snake.pop();
+        }
+
+        draw();
+    }
+
+    function gameOver() {
+        running = false;
+        clearInterval(timer);
+        startBtn.textContent = '重新开始';
+        ctx.fillStyle = 'rgba(0,0,0,0.65)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#d9534f';
+        ctx.font = 'bold 22px "Segoe UI", "Microsoft YaHei", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('游戏结束', canvas.width/2, canvas.height/2 - 10);
+        ctx.fillStyle = '#aaa';
+        ctx.font = '14px "Segoe UI", "Microsoft YaHei", sans-serif';
+        ctx.fillText('最终得分 ' + score, canvas.width/2, canvas.height/2 + 24);
+    }
+
+    function toggle() {
+        if (running) {
+            running = false;
+            clearInterval(timer);
+            startBtn.textContent = '继续';
+        } else {
+            running = true;
+            if (startBtn.textContent === '重新开始') init();
+            running = true;
+            startBtn.textContent = '暂停';
+            if (timer) clearInterval(timer);
+            timer = setInterval(step, 130);
+        }
+    }
+
+    function reset() {
+        running = false;
+        clearInterval(timer);
+        init();
+    }
+
+    // 键盘
+    document.addEventListener('keydown', function (e) {
+        var key = e.key;
+        // 只在贪吃蛇标签激活时响应
+        if (!document.getElementById('panel-snake').classList.contains('active')) return;
+
+        if (key === ' ' || key === 'Space') {
+            e.preventDefault();
+            toggle();
+            return;
+        }
+
+        var d = null;
+        if (key === 'ArrowUp' || key === 'w' || key === 'W') d = {x:0, y:-1};
+        else if (key === 'ArrowDown' || key === 's' || key === 'S') d = {x:0, y:1};
+        else if (key === 'ArrowLeft' || key === 'a' || key === 'A') d = {x:-1, y:0};
+        else if (key === 'ArrowRight' || key === 'd' || key === 'D') d = {x:1, y:0};
+
+        if (d) {
+            e.preventDefault();
+            // 禁止 180 度掉头
+            if (d.x !== -dir.x || d.y !== -dir.y) {
+                nextDir = d;
+            }
+            if (!running && startBtn.textContent !== '暂停') {
+                // 按方向键也能开始
+                if (startBtn.textContent === '重新开始') init();
+                running = true;
+                startBtn.textContent = '暂停';
+                if (timer) clearInterval(timer);
+                timer = setInterval(step, 130);
+            }
+        }
+    });
+
+    startBtn.addEventListener('click', toggle);
+    resetBtn.addEventListener('click', reset);
+
+    init();
+})();
+</script>
+
+</body>
 </html>
