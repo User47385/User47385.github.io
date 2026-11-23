@@ -9,43 +9,66 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            /* 背景图设置：由于图片在根目录，直接用 /bj.png 或 bj.png */
             background-image: url('/bj.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #1a1a1a; /* 图片未加载时的底色 */
+            background-color: #1a1a1a;
             
             color: #d0d0d0;
             font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
             line-height: 1.7;
             padding: 0 16px 40px;
+            overflow-x: hidden;
         }
 
-        /* 窄容器 */
         .wrap {
             max-width: 720px;
             margin: 0 auto;
+            position: relative;
         }
+
+        /* ---------- 语言切换 ---------- */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 16px;
+            font-size: 0.8rem;
+            color: #aaa;
+            user-select: none;
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 10;
+        }
+        .lang-switch span {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .lang-switch span:hover { color: #9ae850; }
+        .lang-switch span.active { color: #fff; font-weight: bold; }
+        .lang-switch .divider { margin: 0 8px; color: #555; cursor: default; }
 
         /* ---------- 顶部天数 ---------- */
         .uptime {
             padding: 48px 0 32px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 边框半透明 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 32px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* 给文字加阴影，防止背景图太亮看不清 */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .uptime h1 {
             font-size: 1.9rem;
             font-weight: 600;
-            color: #7ED321; /* Minecraft 草绿 */
+            color: #7ED321;
             letter-spacing: 0.5px;
             line-height: 1.4;
         }
 
-        .uptime h1 span {
+        .uptime h1 span.num {
             font-size: 2.6rem;
             font-weight: 700;
             color: #9ae850;
@@ -54,14 +77,12 @@
 
         .uptime .sub {
             font-size: 0.85rem;
-            color: #ccc; /* 提亮一点 */
+            color: #ccc;
             margin-top: 6px;
         }
 
         /* ---------- 通用区块 ---------- */
-        section {
-            margin-bottom: 36px;
-        }
+        section { margin-bottom: 36px; }
 
         .sec-title {
             font-size: 1rem;
@@ -76,8 +97,8 @@
 
         /* ---------- 服务器状态 ---------- */
         .status-card {
-            background: rgba(33, 33, 33, 0.85); /* 透明UI */
-            backdrop-filter: blur(4px); /* 背景模糊，增强质感 */
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
             padding: 18px 20px;
@@ -94,11 +115,7 @@
             flex-shrink: 0;
         }
 
-        .status-ring-wrap canvas {
-            width: 72px;
-            height: 72px;
-            display: block;
-        }
+        .status-ring-wrap canvas { width: 72px; height: 72px; display: block; }
 
         .ring-label {
             position: absolute;
@@ -110,10 +127,7 @@
             color: #888;
         }
 
-        .status-info {
-            flex: 1;
-            min-width: 160px;
-        }
+        .status-info { flex: 1; min-width: 160px; }
 
         .status-line {
             display: flex;
@@ -149,15 +163,8 @@
 
         .status-addr:hover { border-color: #555; }
 
-        .status-meta {
-            font-size: 0.82rem;
-            color: #aaa;
-        }
-
-        .status-meta strong {
-            color: #ddd;
-            font-weight: 500;
-        }
+        .status-meta { font-size: 0.82rem; color: #aaa; }
+        .status-meta strong { color: #ddd; font-weight: 500; }
 
         .status-note {
             font-size: 0.75rem;
@@ -167,11 +174,7 @@
         }
 
         /* ---------- 加入我们 ---------- */
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+        .links { display: flex; flex-wrap: wrap; gap: 12px; }
 
         .link-item {
             display: inline-flex;
@@ -188,11 +191,7 @@
             transition: border-color 0.15s, background 0.15s;
         }
 
-        .link-item:hover {
-            border-color: #7ED321;
-            background: rgba(45, 45, 45, 0.9);
-            color: #fff;
-        }
+        .link-item:hover { border-color: #7ED321; background: rgba(45, 45, 45, 0.9); color: #fff; }
 
         .link-item .tag {
             font-size: 0.7rem;
@@ -203,43 +202,147 @@
             line-height: 1.4;
         }
 
-        /* ---------- 游戏区 ---------- */
+        /* ---------- 友情链接 ---------- */
+        .friend-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            padding: 24px 20px;
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .friend-links > div {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .friend-links a {
+            color: #9ae850;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .friend-links a:hover { color: #fff; text-decoration: underline; }
+        .friend-links .desc { font-size: 0.8rem; color: #777; }
+
+        /* ---------- 页脚 ---------- */
+        footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75rem;
+            color: #999;
+            text-align: center;
+            line-height: 1.9;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+        footer .disclaimer { color: #777; }
+
+        /* ============================================================
+           小游戏弹窗（Modal）样式
+           ============================================================ */
+        .game-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 16px;
+            overflow-y: auto;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .game-modal.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-inner {
+            width: 100%;
+            max-width: 720px;
+            background: rgba(33, 33, 33, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .close-modal {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .close-modal:hover { color: #fff; }
+        
+        /* 游戏区 Tabs */
         .tabs {
             display: flex;
             gap: 4px;
             margin-bottom: 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .tab-btn {
             background: none;
             border: none;
-            color: #999;
-            font-size: 0.88rem;
-            padding: 8px 16px;
+            color: #777;
+            font-size: 0.95rem;
+            padding: 10px 20px;
             cursor: pointer;
             border-bottom: 2px solid transparent;
             margin-bottom: -1px;
             font-family: inherit;
             transition: color 0.15s, border-color 0.15s;
         }
-
-        .tab-btn:hover { color: #ccc; }
-        .tab-btn.active {
-            color: #9ae850;
-            border-bottom-color: #7ED321;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-        }
+        .tab-btn:hover { color: #aaa; }
+        .tab-btn.active { color: #9ae850; border-bottom-color: #7ED321; }
 
         .game-panel { display: none; }
         .game-panel.active { display: block; }
 
-        .game-hint {
-            font-size: 0.78rem;
-            color: #aaa;
-            margin-bottom: 10px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        .game-hint { font-size: 0.82rem; color: #aaa; margin-bottom: 12px; }
+
+        /* 控制栏通用 */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            font-size: 0.88rem;
+            color: #ccc;
         }
+        .btn-sm {
+            background: rgba(50, 50, 50, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ddd;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .btn-sm:hover:not(:disabled) { border-color: #7ED321; background: rgba(60, 60, 60, 0.9); }
+        .btn-sm:disabled { opacity: 0.5; cursor: not-allowed; border-color: #444; color: #777; }
 
         /* 五子棋 */
         #gomokuCanvas {
@@ -253,47 +356,13 @@
             cursor: pointer;
             touch-action: manipulation;
         }
-
-        .gomoku-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-
-        .gomoku-turn {
-            font-size: 0.85rem;
-            color: #ccc;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-        }
-
         .turn-dot {
-            width: 12px;
-            height: 12px;
+            width: 12px; height: 12px;
             border-radius: 50%;
             display: inline-block;
             border: 1px solid #555;
         }
-
-        .btn-sm {
-            background: rgba(42, 42, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #bbb;
-            padding: 5px 14px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            font-family: inherit;
-            transition: border-color 0.15s;
-            backdrop-filter: blur(4px);
-        }
-
-        .btn-sm:hover { border-color: #7ED321; color: #ddd; }
+        .gomoku-turn { display: flex; align-items: center; gap: 6px; }
 
         /* 贪吃蛇 */
         #snakeCanvas {
@@ -305,50 +374,26 @@
             max-width: 100%;
             height: auto;
         }
-
-        .snake-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-
-        .snake-score {
-            font-size: 0.85rem;
+        .snake-select {
+            background: #2a2a2a;
             color: #ccc;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            border: 1px solid #444;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: inherit;
+            outline: none;
         }
+        .snake-score span { color: #9ae850; font-weight: 600; }
 
-        .snake-score span {
-            color: #9ae850;
-            font-weight: 600;
-        }
-
-        /* ---------- 页脚 ---------- */
-        footer {
-            margin-top: 48px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.75rem;
-            color: #999;
-            text-align: center;
-            line-height: 1.9;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-        }
-
-        footer .disclaimer {
-            color: #777;
-        }
-
-        /* 响应式微调 */
+        /* 响应式 */
         @media (max-width: 480px) {
             .uptime h1 { font-size: 1.5rem; }
-            .uptime h1 span { font-size: 2.1rem; }
+            .uptime h1 span.num { font-size: 2.1rem; }
             .status-card { padding: 14px 16px; gap: 14px; }
             .links { flex-direction: column; }
             .link-item { justify-content: center; }
+            .friend-links { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .modal-inner { padding: 16px; }
         }
     </style>
 </head>
@@ -356,15 +401,22 @@
 
 <div class="wrap">
 
+    <!-- 语言切换 -->
+    <div class="lang-switch">
+        <span id="btn-zh" class="active" onclick="switchLang('zh')">简体中文</span>
+        <span class="divider">|</span>
+        <span id="btn-en" onclick="switchLang('en')">English</span>
+    </div>
+
     <!-- 顶部：稳定运行天数 -->
     <header class="uptime">
-        <h1>服务器已稳定运行 <span id="daysCount">—</span> 天！</h1>
-        <div class="sub">自 2026 年 3 月 22 日起，仍在继续。</div>
+        <h1><span data-i18n="uptime_title">服务器已稳定运行</span> <span class="num" id="daysCount">—</span> <span data-i18n="uptime_days">天！</span></h1>
+        <div class="sub"><span data-i18n="uptime_sub">自 2026 年 3 月 22 日起，仍在继续。</span></div>
     </header>
 
     <!-- 服务器状态 -->
     <section>
-        <div class="sec-title">服务器状态</div>
+        <div class="sec-title" data-i18n="sec_status">服务器状态</div>
         <div class="status-card">
             <div class="status-ring-wrap">
                 <canvas id="ringCanvas" width="72" height="72"></canvas>
@@ -373,26 +425,26 @@
             <div class="status-info">
                 <div class="status-line">
                     <span class="status-dot" id="statusDot"></span>
-                    <span id="statusText">正在获取状态…</span>
+                    <span id="statusText" data-i18n="status_fetching">正在获取状态…</span>
                 </div>
                 <div style="margin: 6px 0;">
                     <span class="status-addr" id="serverAddr" title="点击复制地址">mc.aach.top</span>
                 </div>
                 <div class="status-meta" id="statusMeta">
-                    玩家数：— / — &nbsp;·&nbsp; 版本：—
+                    <span data-i18n="status_players">玩家数</span>：— / — &nbsp;·&nbsp; <span data-i18n="status_version">版本</span>：—
                 </div>
             </div>
         </div>
-        <div class="status-note">状态数据来自公开 API，可能有 1–2 分钟延迟。</div>
+        <div class="status-note" data-i18n="status_note">状态数据来自公开 API，可能有 1–2 分钟延迟。</div>
     </section>
 
     <!-- 加入我们 -->
     <section>
-        <div class="sec-title">加入我们</div>
+        <div class="sec-title" data-i18n="sec_join">加入我们</div>
         <div class="links">
             <a class="link-item" href="https://space.bilibili.com/3546942575478947?spm_id_from=333.40164.0.0" target="_blank" rel="noopener noreferrer">
                 Bilibili
-                <span class="tag">视频</span>
+                <span class="tag" data-i18n="tag_video">视频</span>
             </a>
             <a class="link-item" href="https://qm.qq.com/cgi-bin/qm/qr?k=RoM2_DCrIUTnKMe-R2A-8MHvZVnI10Le&jump_from=webapi&authKey=PfL/1h9gmo0ecQPOaQTih21a6IHdrPreLiCSjHaIckvBZds7G5Z54LaAr4CR/HIP" target="_blank" rel="noopener noreferrer">
                 <img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="MCraft | 官方交流群" title="MCraft | 官方交流群" style="height: 24px; display: block;">
@@ -400,36 +452,21 @@
         </div>
     </section>
 
-    <!-- 游戏区 -->
+    <!-- 友情链接 -->
     <section>
-        <div class="sec-title">游戏区</div>
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="gomoku">双人五子棋</button>
-            <button class="tab-btn" data-tab="snake">贪吃蛇</button>
-        </div>
-
-        <!-- 五子棋面板 -->
-        <div class="game-panel active" id="panel-gomoku">
-            <div class="game-hint">两人共用一台设备，黑先白后，点击交叉点落子。先连成五子者胜。</div>
-            <canvas id="gomokuCanvas" width="480" height="480"></canvas>
-            <div class="gomoku-bar">
-                <div class="gomoku-turn">
-                    <span class="turn-dot" id="turnDot" style="background:#111;"></span>
-                    <span id="turnText">黑棋回合</span>
-                </div>
-                <button class="btn-sm" id="gomokuReset">重新开始</button>
+        <div class="sec-title" data-i18n="sec_links">友情链接</div>
+        <div class="friend-links">
+            <div>
+                <a href="https://www.rainyun.com/" target="_blank">Rianyun</a>
+                <span class="desc">(<span data-i18n="link_rainyun">点击前往雨云官网</span>)</span>
             </div>
-        </div>
-
-        <!-- 贪吃蛇面板 -->
-        <div class="game-panel" id="panel-snake">
-            <div class="game-hint">方向键 / WASD 控制，空格开始或暂停。</div>
-            <canvas id="snakeCanvas" width="400" height="400"></canvas>
-            <div class="snake-bar">
-                <div class="snake-score">分数 <span id="snakeScore">0</span></div>
-                <div class="snake-score">最高 <span id="snakeBest">0</span></div>
-                <button class="btn-sm" id="snakeStart">开始</button>
-                <button class="btn-sm" id="snakeReset">重置</button>
+            <div>
+                <a onclick="openGames()">小游戏</a>
+                <span class="desc">(<span data-i18n="link_games">点击前往小游戏</span>)</span>
+            </div>
+            <div>
+                <a href="https://github.com/User47385/User47385.github.io" target="_blank">Github</a>
+                <span class="desc">(<span data-i18n="link_github">点击前往Github</span>)</span>
             </div>
         </div>
     </section>
@@ -437,26 +474,180 @@
     <!-- 页脚 -->
     <footer>
         <div>Copyright © 2026 MCraft Server.All Rights Reserved.</div>
-        <div class="disclaimer">本网站完全由 AI 开发，不喜勿喷。</div>
+        <div class="disclaimer" data-i18n="footer_disclaimer">本网站完全由 AI 开发，不喜勿喷。</div>
     </footer>
 
 </div>
 
+<!-- ============================================================
+     小游戏全屏弹窗
+     ============================================================ -->
+<div class="game-modal" id="gameModal">
+    <div class="modal-inner">
+        <button class="close-modal" onclick="closeGames()">×</button>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="gomoku" data-i18n="tab_gomoku">双人五子棋</button>
+            <button class="tab-btn" data-tab="snake" data-i18n="tab_snake">贪吃蛇</button>
+        </div>
+
+        <!-- 五子棋面板 -->
+        <div class="game-panel active" id="panel-gomoku">
+            <div class="game-hint" data-i18n="hint_gomoku">两人共用一台设备，黑先白后，点击交叉点落子。先连成五子者胜。</div>
+            <canvas id="gomokuCanvas" width="480" height="480"></canvas>
+            <div class="controls">
+                <div class="gomoku-turn">
+                    <span class="turn-dot" id="turnDot" style="background:#111;"></span>
+                    <span id="turnText" data-i18n="turn_black">黑棋回合</span>
+                </div>
+                <button class="btn-sm" id="gomokuUndo" data-i18n="btn_undo">悔棋 (黑:1 白:1)</button>
+                <button class="btn-sm" id="gomokuReset" data-i18n="btn_restart">重新开始</button>
+            </div>
+        </div>
+
+        <!-- 贪吃蛇面板 -->
+        <div class="game-panel" id="panel-snake">
+            <div class="game-hint" data-i18n="hint_snake">方向键 / WASD 控制，空格开始或暂停。穿墙模式已默认开启。</div>
+            <canvas id="snakeCanvas" width="400" height="400"></canvas>
+            <div class="controls">
+                <div class="snake-score"><span data-i18n="score">分数</span> <span id="snakeScore">0</span></div>
+                <div class="snake-score"><span data-i18n="best">最高</span> <span id="snakeBest">0</span></div>
+                <select class="snake-select" id="snakeDifficulty">
+                    <option value="200" data-i18n="diff_easy">简单</option>
+                    <option value="130" selected data-i18n="diff_normal">普通</option>
+                    <option value="90" data-i18n="diff_hard">困难</option>
+                    <option value="60" data-i18n="diff_hell">地狱</option>
+                </select>
+                <button class="btn-sm" id="snakeStart" data-i18n="btn_start">开始</button>
+                <button class="btn-sm" id="snakeReset" data-i18n="btn_reset">重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 /* ============================================================
-   1. 稳定运行天数
+   1. 国际化 (i18n) 语言切换
+   ============================================================ */
+const i18n = {
+    zh: {
+        uptime_title: "服务器已稳定运行",
+        uptime_days: "天！",
+        uptime_sub: "自 2026 年 3 月 22 日起，仍在继续。",
+        sec_status: "服务器状态",
+        status_fetching: "正在获取状态…",
+        status_online: "在线",
+        status_offline: "服务器离线",
+        status_error: "状态获取失败",
+        status_players: "玩家数",
+        status_version: "版本",
+        status_note: "状态数据来自公开 API，可能有 1–2 分钟延迟。",
+        sec_join: "加入我们",
+        tag_video: "视频",
+        sec_links: "友情链接",
+        link_rainyun: "点击前往雨云官网",
+        link_games: "点击前往小游戏",
+        link_github: "点击前往Github",
+        footer_disclaimer: "本网站完全由 AI 开发，不喜勿喷。",
+        // 游戏界面
+        tab_gomoku: "双人五子棋",
+        tab_snake: "贪吃蛇",
+        hint_gomoku: "两人共用一台设备，黑先白后，点击交叉点落子。先连成五子者胜。",
+        turn_black: "黑棋回合",
+        turn_white: "白棋回合",
+        btn_undo: "悔棋 (黑:{b} 白:{w})",
+        btn_restart: "重新开始",
+        hint_snake: "方向键 / WASD 控制，空格开始或暂停。穿墙模式已默认开启。",
+        score: "分数",
+        best: "最高",
+        diff_easy: "简单",
+        diff_normal: "普通",
+        diff_hard: "困难",
+        diff_hell: "地狱",
+        btn_start: "开始",
+        btn_pause: "暂停",
+        btn_continue: "继续",
+        btn_reset: "重置",
+        game_over: "游戏结束",
+        final_score: "最终得分"
+    },
+    en: {
+        uptime_title: "Server running for",
+        uptime_days: "days!",
+        uptime_sub: "Since March 22, 2026, and still going.",
+        sec_status: "Server Status",
+        status_fetching: "Fetching status...",
+        status_online: "Online",
+        status_offline: "Offline",
+        status_error: "Status Error",
+        status_players: "Players",
+        status_version: "Version",
+        status_note: "Status data comes from public API, may have 1-2 min delay.",
+        sec_join: "Join Us",
+        tag_video: "Video",
+        sec_links: "Friend Links",
+        link_rainyun: "Visit Rainyun",
+        link_games: "Play Mini Games",
+        link_github: "Visit GitHub",
+        footer_disclaimer: "This website is completely developed by AI.",
+        // Game UI
+        tab_gomoku: "Gomoku (2P)",
+        tab_snake: "Snake",
+        hint_gomoku: "Two players share one device. Black first. Click intersection to place.",
+        turn_black: "Black's Turn",
+        turn_white: "White's Turn",
+        btn_undo: "Undo (B:{b} W:{w})",
+        btn_restart: "Restart",
+        hint_snake: "Arrow keys / WASD to move. Space to start/pause. Wall-wrap is ON.",
+        score: "Score",
+        best: "Best",
+        diff_easy: "Easy",
+        diff_normal: "Normal",
+        diff_hard: "Hard",
+        diff_hell: "Hell",
+        btn_start: "Start",
+        btn_pause: "Pause",
+        btn_continue: "Resume",
+        btn_reset: "Reset",
+        game_over: "Game Over",
+        final_score: "Final Score"
+    }
+};
+
+let currentLang = 'zh';
+
+function switchLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    
+    // 静态文字替换
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+            el.textContent = i18n[lang][key];
+        }
+    });
+
+    // 动态文字更新
+    if (window.refreshServerStatus) window.refreshServerStatus();
+    if (window.updateGomokuUI) window.updateGomokuUI();
+    if (window.updateSnakeUI) window.updateSnakeUI();
+}
+
+/* ============================================================
+   2. 稳定运行天数
    ============================================================ */
 (function () {
-    var start = new Date(2026, 2, 22); // 月份从 0 开始，2 = 三月
+    var start = new Date(2026, 2, 22);
     var now = new Date();
     var diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
     if (diff < 0) diff = 0;
     document.getElementById('daysCount').textContent = diff;
 })();
 
-
 /* ============================================================
-   2. 服务器状态 + 环形图
+   3. 服务器状态 + 环形图
    ============================================================ */
 (function () {
     var addrEl = document.getElementById('serverAddr');
@@ -467,11 +658,11 @@
     var canvas = document.getElementById('ringCanvas');
     var ctx = canvas.getContext('2d');
 
-    // 复制地址
     addrEl.addEventListener('click', function () {
         navigator.clipboard.writeText('mc.aach.top').then(function () {
-            addrEl.textContent = '已复制';
-            setTimeout(function () { addrEl.textContent = 'mc.aach.top'; }, 1200);
+            var oldText = addrEl.textContent;
+            addrEl.textContent = currentLang === 'zh' ? '已复制' : 'Copied';
+            setTimeout(function () { addrEl.textContent = oldText; }, 1200);
         }).catch(function () {});
     });
 
@@ -480,14 +671,12 @@
         var w = 72, h = 72, cx = 36, cy = 36, r = 28;
         ctx.clearRect(0, 0, w, h);
 
-        // 底环
         ctx.beginPath();
         ctx.arc(cx, cy, r, 0, Math.PI * 2);
         ctx.strokeStyle = '#3a3a3a';
         ctx.lineWidth = 7;
         ctx.stroke();
 
-        // 进度环
         if (pct > 0) {
             ctx.beginPath();
             ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * pct);
@@ -501,14 +690,14 @@
         ringLabel.style.color = pct > 0 ? '#9ae850' : '#888';
     }
 
-    function setOffline(msg) {
+    function setOffline(msgKey) {
         dotEl.className = 'status-dot offline';
-        textEl.textContent = msg || '离线 / 获取失败';
-        metaEl.innerHTML = '玩家数：— / — &nbsp;·&nbsp; 版本：—';
+        textEl.textContent = i18n[currentLang][msgKey] || 'Offline';
+        metaEl.innerHTML = `<span>${i18n[currentLang].status_players}</span>：— / — &nbsp;·&nbsp; <span>${i18n[currentLang].status_version}</span>：—`;
         drawRing(0, 0);
     }
 
-    function fetchStatus() {
+    window.refreshServerStatus = function() {
         fetch('https://api.mcstatus.io/v2/status/java/mc.aach.top')
             .then(function (r) {
                 if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -516,7 +705,7 @@
             })
             .then(function (data) {
                 if (!data || data.online !== true) {
-                    setOffline('服务器离线');
+                    setOffline('status_offline');
                     return;
                 }
                 var online = (data.players && data.players.online) || 0;
@@ -524,59 +713,60 @@
                 var ver = (data.version && data.version.name_clean) || '未知';
 
                 dotEl.className = 'status-dot online';
-                textEl.textContent = '在线';
-                metaEl.innerHTML = '玩家数：<strong>' + online + '</strong> / ' + max +
-                    ' &nbsp;·&nbsp; 版本：<strong>' + ver + '</strong>';
+                textEl.textContent = i18n[currentLang].status_online;
+                metaEl.innerHTML = `<span>${i18n[currentLang].status_players}</span>：<strong>${online}</strong> / ${max} &nbsp;·&nbsp; <span>${i18n[currentLang].status_version}</span>：<strong>${ver}</strong>`;
                 drawRing(online, max);
             })
             .catch(function () {
-                setOffline('状态获取失败');
+                setOffline('status_error');
             });
-    }
-
-    fetchStatus();
-    setInterval(fetchStatus, 60000);
-})();
-
-
-/* ============================================================
-   3. 标签页切换
-   ============================================================ */
-(function () {
-    var btns = document.querySelectorAll('.tab-btn');
-    var panels = {
-        gomoku: document.getElementById('panel-gomoku'),
-        snake: document.getElementById('panel-snake')
     };
-    btns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            btns.forEach(function (b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-            Object.keys(panels).forEach(function (k) {
-                panels[k].classList.remove('active');
-            });
-            panels[btn.dataset.tab].classList.add('active');
-        });
-    });
+
+    window.refreshServerStatus();
+    setInterval(window.refreshServerStatus, 60000);
 })();
 
+/* ============================================================
+   4. 小游戏弹窗控制
+   ============================================================ */
+function openGames() {
+    document.getElementById('gameModal').classList.add('show');
+}
+function closeGames() {
+    document.getElementById('gameModal').classList.remove('show');
+}
+
+// Tabs 切换
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelectorAll('.game-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('panel-' + this.dataset.tab).classList.add('active');
+    });
+});
 
 /* ============================================================
-   4. 双人五子棋（同机轮流）
+   5. 双人五子棋 (含悔棋功能)
    ============================================================ */
 (function () {
     var canvas = document.getElementById('gomokuCanvas');
     var ctx = canvas.getContext('2d');
     var turnDot = document.getElementById('turnDot');
     var turnText = document.getElementById('turnText');
+    var undoBtn = document.getElementById('gomokuUndo');
     var resetBtn = document.getElementById('gomokuReset');
 
     var SIZE = 15;
     var CELL = canvas.width / (SIZE + 1);
     var PAD = CELL;
     var board = [];
-    var current = 1;
+    var current = 1; // 1: 黑, 2: 白
     var gameOver = false;
+    var history = []; // 记录落子历史 [{r, c, player}]
+    
+    // 悔棋机会记录
+    var undoChances = { 1: 1, 2: 1 };
 
     function initBoard() {
         board = [];
@@ -637,12 +827,27 @@
         }
     }
 
-    function updateTurnUI() {
-        if (gameOver) return;
-        turnDot.style.background = current === 1 ? '#111' : '#eee';
-        turnDot.style.borderColor = current === 1 ? '#444' : '#aaa';
-        turnText.textContent = current === 1 ? '黑棋回合' : '白棋回合';
-    }
+    window.updateGomokuUI = function() {
+        // 更新回合文字
+        if (!gameOver) {
+            turnDot.style.background = current === 1 ? '#111' : '#eee';
+            turnDot.style.borderColor = current === 1 ? '#444' : '#aaa';
+            var turnKey = current === 1 ? 'turn_black' : 'turn_white';
+            turnText.textContent = i18n[currentLang][turnKey];
+            turnText.setAttribute('data-i18n', turnKey);
+        }
+
+        // 更新悔棋按钮文字和状态
+        var template = i18n[currentLang].btn_undo;
+        undoBtn.textContent = template.replace('{b}', undoChances[1]).replace('{w}', undoChances[2]);
+        
+        // 判断当前玩家是否有悔棋机会，且历史记录不为空，且游戏未结束
+        if (undoChances[current] > 0 && history.length > 0 && !gameOver) {
+            undoBtn.disabled = false;
+        } else {
+            undoBtn.disabled = true;
+        }
+    };
 
     function checkWin(r, c, player) {
         var dirs = [[0,1],[1,0],[1,1],[1,-1]];
@@ -675,38 +880,60 @@
         if (r < 0 || r >= SIZE || c < 0 || c >= SIZE) return;
         if (board[r][c] !== 0) return;
 
+        // 落子
         board[r][c] = current;
+        history.push({ r: r, c: c, player: current });
         drawBoard();
 
         if (checkWin(r, c, current)) {
             gameOver = true;
-            turnText.textContent = (current === 1 ? '黑棋' : '白棋') + '获胜！';
+            var winKey = current === 1 ? 'turn_black' : 'turn_white';
+            // 借用翻译文字加上 获胜/win 字样
+            turnText.textContent = (currentLang === 'zh' ? (current === 1 ? '黑棋' : '白棋') + '获胜！' : (current === 1 ? 'Black' : 'White') + ' Wins!');
             turnDot.style.background = 'transparent';
             turnDot.style.borderColor = 'transparent';
+            window.updateGomokuUI(); // 更新按钮状态(禁用)
             return;
         }
 
         current = current === 1 ? 2 : 1;
-        updateTurnUI();
+        window.updateGomokuUI();
+    });
+
+    // 悔棋逻辑
+    undoBtn.addEventListener('click', function () {
+        if (gameOver || history.length === 0 || undoChances[current] <= 0) return;
+
+        // 撤销最后一步
+        var lastMove = history.pop();
+        board[lastMove.r][lastMove.c] = 0;
+        
+        // 消耗悔棋次数
+        undoChances[current]--;
+        
+        // 因为刚才已经切换过回合，现在 current 就是想要悔棋的一方
+        // 撤销后，回合依然属于当前玩家（因为他要重新下）
+        
+        drawBoard();
+        window.updateGomokuUI();
     });
 
     function reset() {
         initBoard();
+        history = [];
         current = 1;
         gameOver = false;
+        undoChances = { 1: 1, 2: 1 };
         drawBoard();
-        updateTurnUI();
+        window.updateGomokuUI();
     }
 
     resetBtn.addEventListener('click', reset);
-    initBoard();
-    drawBoard();
-    updateTurnUI();
+    reset();
 })();
 
-
 /* ============================================================
-   5. 贪吃蛇
+   6. 贪吃蛇 (穿墙强制开启 + 难度可调)
    ============================================================ */
 (function () {
     var canvas = document.getElementById('snakeCanvas');
@@ -715,10 +942,12 @@
     var bestEl = document.getElementById('snakeBest');
     var startBtn = document.getElementById('snakeStart');
     var resetBtn = document.getElementById('snakeReset');
+    var diffSelect = document.getElementById('snakeDifficulty');
 
     var GRID = 20;
     var CELL = canvas.width / GRID;
     var snake, dir, nextDir, food, score, running, timer;
+    var speed = parseInt(diffSelect.value); // 从选择器读取速度
 
     var best = 0;
     try { best = parseInt(localStorage.getItem('mc_snake_best')) || 0; } catch (e) {}
@@ -733,7 +962,7 @@
         scoreEl.textContent = 0;
         placeFood();
         draw();
-        startBtn.textContent = '开始';
+        window.updateSnakeUI(true);
     }
 
     function placeFood() {
@@ -787,10 +1016,13 @@
 
         var head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
 
-        if (head.x < 0 || head.x >= GRID || head.y < 0 || head.y >= GRID) {
-            gameOver();
-            return;
-        }
+        // 穿墙逻辑 (默认开启)
+        if (head.x < 0) head.x = GRID - 1;
+        if (head.x >= GRID) head.x = 0;
+        if (head.y < 0) head.y = GRID - 1;
+        if (head.y >= GRID) head.y = 0;
+
+        // 撞自己判断
         if (snake.some(function (s) { return s.x === head.x && s.y === head.y; })) {
             gameOver();
             return;
@@ -817,30 +1049,36 @@
     function gameOver() {
         running = false;
         clearInterval(timer);
-        startBtn.textContent = '重新开始';
+        startBtn.textContent = i18n[currentLang].btn_start; // 重置为开始按钮
+        window.updateSnakeUI(true);
+        
         ctx.fillStyle = 'rgba(0,0,0,0.65)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = '#d9534f';
         ctx.font = 'bold 22px "Segoe UI", "Microsoft YaHei", sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('游戏结束', canvas.width/2, canvas.height/2 - 10);
+        ctx.fillText(i18n[currentLang].game_over, canvas.width/2, canvas.height/2 - 10);
         ctx.fillStyle = '#aaa';
         ctx.font = '14px "Segoe UI", "Microsoft YaHei", sans-serif';
-        ctx.fillText('最终得分 ' + score, canvas.width/2, canvas.height/2 + 24);
+        ctx.fillText(i18n[currentLang].final_score + ' ' + score, canvas.width/2, canvas.height/2 + 24);
     }
 
     function toggle() {
         if (running) {
             running = false;
             clearInterval(timer);
-            startBtn.textContent = '继续';
+            startBtn.textContent = i18n[currentLang].btn_continue;
+            window.updateSnakeUI();
         } else {
+            // 如果已经死了，点击开始相当于重置再开始
+            if (startBtn.textContent === i18n[currentLang].btn_start || startBtn.textContent === '重新开始') {
+                init();
+            }
             running = true;
-            if (startBtn.textContent === '重新开始') init();
-            running = true;
-            startBtn.textContent = '暂停';
+            startBtn.textContent = i18n[currentLang].btn_pause;
             if (timer) clearInterval(timer);
-            timer = setInterval(step, 130);
+            speed = parseInt(diffSelect.value); // 每次开始读取最新难度
+            timer = setInterval(step, speed);
         }
     }
 
@@ -850,9 +1088,25 @@
         init();
     }
 
+    // 动态更新贪吃蛇 UI 文字（用于语言切换）
+    window.updateSnakeUI = function(isGameOver) {
+        if (running) {
+            startBtn.textContent = i18n[currentLang].btn_pause;
+        } else if (isGameOver) {
+            startBtn.textContent = i18n[currentLang].btn_start; 
+        }
+        // 如果在暂停状态，保留当前按钮文字（由 toggle 控制）
+        if (!running && startBtn.textContent !== i18n[currentLang].btn_start && startBtn.textContent !== '重新开始' && startBtn.textContent !== 'Pause' && startBtn.textContent !== '暂停' && startBtn.textContent !== 'Resume' && startBtn.textContent !== '继续') {
+            startBtn.textContent = i18n[currentLang].btn_continue;
+        }
+    };
+
+    // 监听键盘
     document.addEventListener('keydown', function (e) {
         var key = e.key;
-        if (!document.getElementById('panel-snake').classList.contains('active')) return;
+        // 只有弹窗打开且贪吃蛇面板激活时才响应
+        if (!document.getElementById('gameModal').classList.contains('show') || 
+            !document.getElementById('panel-snake').classList.contains('active')) return;
 
         if (key === ' ' || key === 'Space') {
             e.preventDefault();
@@ -871,13 +1125,23 @@
             if (d.x !== -dir.x || d.y !== -dir.y) {
                 nextDir = d;
             }
-            if (!running && startBtn.textContent !== '暂停') {
-                if (startBtn.textContent === '重新开始') init();
+            if (!running && startBtn.textContent !== i18n[currentLang].btn_pause) {
+                if (startBtn.textContent === i18n[currentLang].btn_start) init();
                 running = true;
-                startBtn.textContent = '暂停';
+                startBtn.textContent = i18n[currentLang].btn_pause;
                 if (timer) clearInterval(timer);
-                timer = setInterval(step, 130);
+                speed = parseInt(diffSelect.value);
+                timer = setInterval(step, speed);
             }
+        }
+    });
+
+    // 切换难度时，如果是运行状态，实时生效
+    diffSelect.addEventListener('change', function() {
+        if (running) {
+            speed = parseInt(this.value);
+            clearInterval(timer);
+            timer = setInterval(step, speed);
         }
     });
 
