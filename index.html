@@ -43,10 +43,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             z-index: 10;
         }
-        .lang-switch span {
-            cursor: pointer;
-            transition: color 0.2s;
-        }
+        .lang-switch span { cursor: pointer; transition: color 0.2s; }
         .lang-switch span:hover { color: #9ae850; }
         .lang-switch span.active { color: #fff; font-weight: bold; }
         .lang-switch .divider { margin: 0 8px; color: #555; cursor: default; }
@@ -60,26 +57,9 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        .uptime h1 {
-            font-size: 1.9rem;
-            font-weight: 600;
-            color: #7ED321;
-            letter-spacing: 0.5px;
-            line-height: 1.4;
-        }
-
-        .uptime h1 span.num {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #9ae850;
-            margin: 0 2px;
-        }
-
-        .uptime .sub {
-            font-size: 0.85rem;
-            color: #ccc;
-            margin-top: 6px;
-        }
+        .uptime h1 { font-size: 1.9rem; font-weight: 600; color: #7ED321; letter-spacing: 0.5px; line-height: 1.4; }
+        .uptime h1 span.num { font-size: 2.6rem; font-weight: 700; color: #9ae850; margin: 0 2px; }
+        .uptime .sub { font-size: 0.85rem; color: #ccc; margin-top: 6px; }
 
         /* ---------- 通用区块 ---------- */
         section { margin-bottom: 36px; }
@@ -108,44 +88,12 @@
             flex-wrap: wrap;
         }
 
-        .status-ring-wrap {
-            position: relative;
-            width: 72px;
-            height: 72px;
-            flex-shrink: 0;
-        }
-
+        .status-ring-wrap { position: relative; width: 72px; height: 72px; flex-shrink: 0; }
         .status-ring-wrap canvas { width: 72px; height: 72px; display: block; }
-
-        .ring-label {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            color: #888;
-        }
-
+        .ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #888; }
         .status-info { flex: 1; min-width: 160px; }
-
-        .status-line {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 4px;
-            font-size: 0.9rem;
-        }
-
-        .status-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #666;
-            flex-shrink: 0;
-        }
-
+        .status-line { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; font-size: 0.9rem; }
+        .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #666; flex-shrink: 0; }
         .status-dot.online { background: #7ED321; box-shadow: 0 0 6px rgba(126, 211, 33, 0.5); }
         .status-dot.offline { background: #d9534f; }
 
@@ -160,18 +108,10 @@
             cursor: pointer;
             transition: border-color 0.15s;
         }
-
         .status-addr:hover { border-color: #555; }
-
         .status-meta { font-size: 0.82rem; color: #aaa; }
         .status-meta strong { color: #ddd; font-weight: 500; }
-
-        .status-note {
-            font-size: 0.75rem;
-            color: #999;
-            margin-top: 10px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-        }
+        .status-note { font-size: 0.75rem; color: #999; margin-top: 10px; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
 
         /* ---------- 加入我们 ---------- */
         .links { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -189,60 +129,32 @@
             text-decoration: none;
             font-size: 0.88rem;
             transition: border-color 0.15s, background 0.15s;
+            cursor: pointer;
         }
-
         .link-item:hover { border-color: #7ED321; background: rgba(45, 45, 45, 0.9); color: #fff; }
-
         .link-item .tag {
-            font-size: 0.7rem;
-            color: #888;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0 5px;
-            border-radius: 2px;
-            line-height: 1.4;
+            font-size: 0.7rem; color: #888; border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0 5px; border-radius: 2px; line-height: 1.4;
         }
 
         /* ---------- 友情链接 ---------- */
         .friend-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-            padding: 24px 20px;
-            background: rgba(33, 33, 33, 0.85);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            font-size: 0.95rem;
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px;
+            padding: 24px 20px; background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px; font-size: 0.95rem;
         }
-
-        .friend-links > div {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-        }
-
+        .friend-links > div { display: flex; align-items: baseline; gap: 4px; }
         .friend-links a {
-            color: #9ae850;
-            text-decoration: none;
-            transition: color 0.2s;
-            font-weight: 600;
-            cursor: pointer;
+            color: #9ae850; text-decoration: none; transition: color 0.2s;
+            font-weight: 600; cursor: pointer;
         }
-
         .friend-links a:hover { color: #fff; text-decoration: underline; }
-        .friend-links .desc { font-size: 0.8rem; color: #777; }
 
         /* ---------- 页脚 ---------- */
         footer {
-            margin-top: 48px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.75rem;
-            color: #999;
-            text-align: center;
-            line-height: 1.9;
+            margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75rem; color: #999; text-align: center; line-height: 1.9;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
         footer .disclaimer { color: #777; }
@@ -251,137 +163,69 @@
            小游戏弹窗（Modal）样式
            ============================================================ */
         .game-modal {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 16px;
-            overflow-y: auto;
-            opacity: 0;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(8px); z-index: 9999;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 40px 16px; overflow-y: auto; opacity: 0; pointer-events: none;
             transition: opacity 0.3s ease;
         }
-        .game-modal.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .game-modal.show { opacity: 1; pointer-events: auto; }
         .modal-inner {
-            width: 100%;
-            max-width: 720px;
-            background: rgba(33, 33, 33, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            padding: 24px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%; max-width: 720px; background: rgba(33, 33, 33, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px;
+            padding: 24px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .close-modal {
-            position: absolute;
-            top: 16px; right: 16px;
-            background: none;
-            border: none;
-            color: #aaa;
-            font-size: 1.5rem;
-            cursor: pointer;
-            line-height: 1;
-            transition: color 0.2s;
+            position: absolute; top: 16px; right: 16px; background: none; border: none;
+            color: #aaa; font-size: 1.5rem; cursor: pointer; line-height: 1; transition: color 0.2s;
         }
         .close-modal:hover { color: #fff; }
         
         /* 游戏区 Tabs */
-        .tabs {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .tab-btn {
-            background: none;
-            border: none;
-            color: #777;
-            font-size: 0.95rem;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -1px;
-            font-family: inherit;
-            transition: color 0.15s, border-color 0.15s;
+            background: none; border: none; color: #777; font-size: 0.95rem; padding: 10px 20px;
+            cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px;
+            font-family: inherit; transition: color 0.15s, border-color 0.15s;
         }
         .tab-btn:hover { color: #aaa; }
         .tab-btn.active { color: #9ae850; border-bottom-color: #7ED321; }
 
         .game-panel { display: none; }
         .game-panel.active { display: block; }
-
         .game-hint { font-size: 0.82rem; color: #aaa; margin-bottom: 12px; }
 
         /* 控制栏通用 */
         .controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-            font-size: 0.88rem;
-            color: #ccc;
+            display: flex; align-items: center; justify-content: center; gap: 16px;
+            margin-top: 16px; flex-wrap: wrap; font-size: 0.88rem; color: #ccc;
         }
         .btn-sm {
-            background: rgba(50, 50, 50, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ddd;
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            font-family: inherit;
-            transition: border-color 0.15s, background 0.15s;
+            background: rgba(50, 50, 50, 0.8); border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ddd; padding: 6px 16px; border-radius: 4px; font-size: 0.85rem;
+            cursor: pointer; font-family: inherit; transition: border-color 0.15s, background 0.15s;
         }
         .btn-sm:hover:not(:disabled) { border-color: #7ED321; background: rgba(60, 60, 60, 0.9); }
         .btn-sm:disabled { opacity: 0.5; cursor: not-allowed; border-color: #444; color: #777; }
 
         /* 五子棋 */
         #gomokuCanvas {
-            display: block;
-            margin: 0 auto;
-            background: #2a221b;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            max-width: 100%;
-            height: auto;
-            cursor: pointer;
-            touch-action: manipulation;
+            display: block; margin: 0 auto; background: #2a221b;
+            border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 4px;
+            max-width: 100%; height: auto; cursor: pointer; touch-action: manipulation;
         }
-        .turn-dot {
-            width: 12px; height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-            border: 1px solid #555;
-        }
+        .turn-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid #555; }
         .gomoku-turn { display: flex; align-items: center; gap: 6px; }
 
         /* 贪吃蛇 */
         #snakeCanvas {
-            display: block;
-            margin: 0 auto;
-            background: #141414;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            max-width: 100%;
-            height: auto;
+            display: block; margin: 0 auto; background: #141414;
+            border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 4px;
+            max-width: 100%; height: auto;
         }
         .snake-select {
-            background: #2a2a2a;
-            color: #ccc;
-            border: 1px solid #444;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: inherit;
-            outline: none;
+            background: #2a2a2a; color: #ccc; border: 1px solid #444;
+            padding: 4px 8px; border-radius: 4px; font-family: inherit; outline: none;
         }
         .snake-score span { color: #9ae850; font-weight: 600; }
 
@@ -400,21 +244,17 @@
 <body>
 
 <div class="wrap">
-
-    <!-- 语言切换 -->
     <div class="lang-switch">
         <span id="btn-zh" class="active" onclick="switchLang('zh')">简体中文</span>
         <span class="divider">|</span>
         <span id="btn-en" onclick="switchLang('en')">English</span>
     </div>
 
-    <!-- 顶部：稳定运行天数 -->
     <header class="uptime">
         <h1><span data-i18n="uptime_title">服务器已稳定运行</span> <span class="num" id="daysCount">—</span> <span data-i18n="uptime_days">天！</span></h1>
         <div class="sub"><span data-i18n="uptime_sub">自 2026 年 3 月 22 日起，仍在继续。</span></div>
     </header>
 
-    <!-- 服务器状态 -->
     <section>
         <div class="sec-title" data-i18n="sec_status">服务器状态</div>
         <div class="status-card">
@@ -438,60 +278,46 @@
         <div class="status-note" data-i18n="status_note">状态数据来自公开 API，可能有 1–2 分钟延迟。</div>
     </section>
 
-    <!-- 加入我们 -->
     <section>
         <div class="sec-title" data-i18n="sec_join">加入我们</div>
         <div class="links">
             <a class="link-item" href="https://space.bilibili.com/3546942575478947?spm_id_from=333.40164.0.0" target="_blank" rel="noopener noreferrer">
-                Bilibili
-                <span class="tag" data-i18n="tag_video">视频</span>
+                Bilibili <span class="tag" data-i18n="tag_video">视频</span>
             </a>
             <a class="link-item" href="https://qm.qq.com/cgi-bin/qm/qr?k=RoM2_DCrIUTnKMe-R2A-8MHvZVnI10Le&jump_from=webapi&authKey=PfL/1h9gmo0ecQPOaQTih21a6IHdrPreLiCSjHaIckvBZds7G5Z54LaAr4CR/HIP" target="_blank" rel="noopener noreferrer">
                 <img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="MCraft | 官方交流群" title="MCraft | 官方交流群" style="height: 24px; display: block;">
             </a>
+            <!-- 新增招募计划入口 -->
+            <a class="link-item" href="zm.html">
+                <span data-i18n="link_zm">招募计划</span>
+            </a>
         </div>
     </section>
 
-    <!-- 友情链接 -->
     <section>
         <div class="sec-title" data-i18n="sec_links">友情链接</div>
         <div class="friend-links">
-            <div>
-                <a href="https://www.rainyun.com/" target="_blank">Rianyun</a>
-                <span class="desc">(<span data-i18n="link_rainyun">点击前往雨云官网</span>)</span>
-            </div>
-            <div>
-                <a onclick="openGames()">小游戏</a>
-                <span class="desc">(<span data-i18n="link_games">点击前往小游戏</span>)</span>
-            </div>
-            <div>
-                <a href="https://github.com/User47385/User47385.github.io" target="_blank">Github</a>
-                <span class="desc">(<span data-i18n="link_github">点击前往Github</span>)</span>
-            </div>
+            <div><a href="https://www.rainyun.com/" target="_blank">Rianyun</a></div>
+            <div><a onclick="openGames()" data-i18n="link_games">小游戏</a></div>
+            <div><a href="https://github.com/User47385/User47385.github.io" target="_blank">Github</a></div>
         </div>
     </section>
 
-    <!-- 页脚 -->
     <footer>
         <div>Copyright © 2026 MCraft Server.All Rights Reserved.</div>
         <div class="disclaimer" data-i18n="footer_disclaimer">本网站完全由 AI 开发，不喜勿喷。</div>
     </footer>
-
 </div>
 
-<!-- ============================================================
-     小游戏全屏弹窗
-     ============================================================ -->
+<!-- 小游戏弹窗 -->
 <div class="game-modal" id="gameModal">
     <div class="modal-inner">
         <button class="close-modal" onclick="closeGames()">×</button>
-        
         <div class="tabs">
             <button class="tab-btn active" data-tab="gomoku" data-i18n="tab_gomoku">双人五子棋</button>
             <button class="tab-btn" data-tab="snake" data-i18n="tab_snake">贪吃蛇</button>
         </div>
 
-        <!-- 五子棋面板 -->
         <div class="game-panel active" id="panel-gomoku">
             <div class="game-hint" data-i18n="hint_gomoku">两人共用一台设备，黑先白后，点击交叉点落子。先连成五子者胜。</div>
             <canvas id="gomokuCanvas" width="480" height="480"></canvas>
@@ -505,7 +331,6 @@
             </div>
         </div>
 
-        <!-- 贪吃蛇面板 -->
         <div class="game-panel" id="panel-snake">
             <div class="game-hint" data-i18n="hint_snake">方向键 / WASD 控制，空格开始或暂停。穿墙模式已默认开启。</div>
             <canvas id="snakeCanvas" width="400" height="400"></canvas>
@@ -545,11 +370,9 @@ const i18n = {
         sec_join: "加入我们",
         tag_video: "视频",
         sec_links: "友情链接",
-        link_rainyun: "点击前往雨云官网",
-        link_games: "点击前往小游戏",
-        link_github: "点击前往Github",
+        link_zm: "招募计划",
+        link_games: "小游戏",
         footer_disclaimer: "本网站完全由 AI 开发，不喜勿喷。",
-        // 游戏界面
         tab_gomoku: "双人五子棋",
         tab_snake: "贪吃蛇",
         hint_gomoku: "两人共用一台设备，黑先白后，点击交叉点落子。先连成五子者胜。",
@@ -586,11 +409,9 @@ const i18n = {
         sec_join: "Join Us",
         tag_video: "Video",
         sec_links: "Friend Links",
-        link_rainyun: "Visit Rainyun",
-        link_games: "Play Mini Games",
-        link_github: "Visit GitHub",
+        link_zm: "Recruitment",
+        link_games: "Mini Games",
         footer_disclaimer: "This website is completely developed by AI.",
-        // Game UI
         tab_gomoku: "Gomoku (2P)",
         tab_snake: "Snake",
         hint_gomoku: "Two players share one device. Black first. Click intersection to place.",
@@ -621,15 +442,11 @@ function switchLang(lang) {
     document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     
-    // 静态文字替换
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (i18n[lang][key]) {
-            el.textContent = i18n[lang][key];
-        }
+        if (i18n[lang][key]) el.textContent = i18n[lang][key];
     });
 
-    // 动态文字更新
     if (window.refreshServerStatus) window.refreshServerStatus();
     if (window.updateGomokuUI) window.updateGomokuUI();
     if (window.updateSnakeUI) window.updateSnakeUI();
@@ -670,22 +487,11 @@ function switchLang(lang) {
         var pct = (max > 0) ? Math.min(online / max, 1) : 0;
         var w = 72, h = 72, cx = 36, cy = 36, r = 28;
         ctx.clearRect(0, 0, w, h);
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, r, 0, Math.PI * 2);
-        ctx.strokeStyle = '#3a3a3a';
-        ctx.lineWidth = 7;
-        ctx.stroke();
-
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.strokeStyle = '#3a3a3a'; ctx.lineWidth = 7; ctx.stroke();
         if (pct > 0) {
-            ctx.beginPath();
-            ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * pct);
-            ctx.strokeStyle = '#7ED321';
-            ctx.lineWidth = 7;
-            ctx.lineCap = 'round';
-            ctx.stroke();
+            ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * pct);
+            ctx.strokeStyle = '#7ED321'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.stroke();
         }
-
         ringLabel.textContent = max > 0 ? Math.round(pct * 100) + '%' : '—';
         ringLabel.style.color = pct > 0 ? '#9ae850' : '#888';
     }
@@ -699,27 +505,17 @@ function switchLang(lang) {
 
     window.refreshServerStatus = function() {
         fetch('https://api.mcstatus.io/v2/status/java/mc.aach.top')
-            .then(function (r) {
-                if (!r.ok) throw new Error('HTTP ' + r.status);
-                return r.json();
-            })
-            .then(function (data) {
-                if (!data || data.online !== true) {
-                    setOffline('status_offline');
-                    return;
-                }
+            .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+            .then(data => {
+                if (!data || data.online !== true) return setOffline('status_offline');
                 var online = (data.players && data.players.online) || 0;
                 var max = (data.players && data.players.max) || 0;
                 var ver = (data.version && data.version.name_clean) || '未知';
-
                 dotEl.className = 'status-dot online';
                 textEl.textContent = i18n[currentLang].status_online;
                 metaEl.innerHTML = `<span>${i18n[currentLang].status_players}</span>：<strong>${online}</strong> / ${max} &nbsp;·&nbsp; <span>${i18n[currentLang].status_version}</span>：<strong>${ver}</strong>`;
                 drawRing(online, max);
-            })
-            .catch(function () {
-                setOffline('status_error');
-            });
+            }).catch(() => setOffline('status_error'));
     };
 
     window.refreshServerStatus();
@@ -729,14 +525,9 @@ function switchLang(lang) {
 /* ============================================================
    4. 小游戏弹窗控制
    ============================================================ */
-function openGames() {
-    document.getElementById('gameModal').classList.add('show');
-}
-function closeGames() {
-    document.getElementById('gameModal').classList.remove('show');
-}
+function openGames() { document.getElementById('gameModal').classList.add('show'); }
+function closeGames() { document.getElementById('gameModal').classList.remove('show'); }
 
-// Tabs 切换
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', function () {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -747,7 +538,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 /* ============================================================
-   5. 双人五子棋 (含悔棋功能)
+   5. 五子棋 (含悔棋)
    ============================================================ */
 (function () {
     var canvas = document.getElementById('gomokuCanvas');
@@ -757,96 +548,42 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     var undoBtn = document.getElementById('gomokuUndo');
     var resetBtn = document.getElementById('gomokuReset');
 
-    var SIZE = 15;
-    var CELL = canvas.width / (SIZE + 1);
-    var PAD = CELL;
-    var board = [];
-    var current = 1; // 1: 黑, 2: 白
-    var gameOver = false;
-    var history = []; // 记录落子历史 [{r, c, player}]
-    
-    // 悔棋机会记录
-    var undoChances = { 1: 1, 2: 1 };
+    var SIZE = 15, CELL = canvas.width / (SIZE + 1), PAD = CELL;
+    var board = [], current = 1, gameOver = false, history = [], undoChances = { 1: 1, 2: 1 };
 
-    function initBoard() {
-        board = [];
-        for (var i = 0; i < SIZE; i++) {
-            board.push(new Array(SIZE).fill(0));
-        }
-    }
+    function initBoard() { board = Array.from({length: SIZE}, () => new Array(SIZE).fill(0)); }
 
     function drawBoard() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = '#5a4a3a';
-        ctx.lineWidth = 1;
-
+        ctx.strokeStyle = '#5a4a3a'; ctx.lineWidth = 1;
         for (var i = 0; i < SIZE; i++) {
             var pos = PAD + i * CELL;
-            ctx.beginPath();
-            ctx.moveTo(pos, PAD);
-            ctx.lineTo(pos, PAD + (SIZE - 1) * CELL);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(PAD, pos);
-            ctx.lineTo(PAD + (SIZE - 1) * CELL, pos);
-            ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(pos, PAD); ctx.lineTo(pos, PAD + (SIZE - 1) * CELL); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(PAD, pos); ctx.lineTo(PAD + (SIZE - 1) * CELL, pos); ctx.stroke();
         }
-
         var stars = [[7,7],[3,3],[3,11],[11,3],[11,11]];
         ctx.fillStyle = '#5a4a3a';
-        stars.forEach(function (p) {
-            var x = PAD + p[1] * CELL;
-            var y = PAD + p[0] * CELL;
-            ctx.beginPath();
-            ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-            ctx.fill();
-        });
+        stars.forEach(p => { ctx.beginPath(); ctx.arc(PAD + p[1] * CELL, PAD + p[0] * CELL, 2.5, 0, Math.PI * 2); ctx.fill(); });
 
-        for (var r = 0; r < SIZE; r++) {
-            for (var c = 0; c < SIZE; c++) {
-                if (board[r][c] === 0) continue;
-                var x = PAD + c * CELL;
-                var y = PAD + r * CELL;
-                var rad = CELL * 0.4;
-                var g = ctx.createRadialGradient(x - rad*0.3, y - rad*0.3, rad*0.1, x, y, rad);
-                if (board[r][c] === 1) {
-                    g.addColorStop(0, '#555');
-                    g.addColorStop(1, '#0a0a0a');
-                } else {
-                    g.addColorStop(0, '#fff');
-                    g.addColorStop(1, '#c8c8c8');
-                }
-                ctx.beginPath();
-                ctx.arc(x, y, rad, 0, Math.PI * 2);
-                ctx.fillStyle = g;
-                ctx.fill();
-                ctx.strokeStyle = board[r][c] === 1 ? '#000' : '#999';
-                ctx.lineWidth = 1;
-                ctx.stroke();
-            }
+        for (var r = 0; r < SIZE; r++) for (var c = 0; c < SIZE; c++) {
+            if (board[r][c] === 0) continue;
+            var x = PAD + c * CELL, y = PAD + r * CELL, rad = CELL * 0.4;
+            var g = ctx.createRadialGradient(x - rad*0.3, y - rad*0.3, rad*0.1, x, y, rad);
+            if (board[r][c] === 1) { g.addColorStop(0, '#555'); g.addColorStop(1, '#0a0a0a'); }
+            else { g.addColorStop(0, '#fff'); g.addColorStop(1, '#c8c8c8'); }
+            ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+            ctx.strokeStyle = board[r][c] === 1 ? '#000' : '#999'; ctx.stroke();
         }
     }
 
     window.updateGomokuUI = function() {
-        // 更新回合文字
         if (!gameOver) {
             turnDot.style.background = current === 1 ? '#111' : '#eee';
             turnDot.style.borderColor = current === 1 ? '#444' : '#aaa';
-            var turnKey = current === 1 ? 'turn_black' : 'turn_white';
-            turnText.textContent = i18n[currentLang][turnKey];
-            turnText.setAttribute('data-i18n', turnKey);
+            turnText.textContent = i18n[currentLang][current === 1 ? 'turn_black' : 'turn_white'];
         }
-
-        // 更新悔棋按钮文字和状态
-        var template = i18n[currentLang].btn_undo;
-        undoBtn.textContent = template.replace('{b}', undoChances[1]).replace('{w}', undoChances[2]);
-        
-        // 判断当前玩家是否有悔棋机会，且历史记录不为空，且游戏未结束
-        if (undoChances[current] > 0 && history.length > 0 && !gameOver) {
-            undoBtn.disabled = false;
-        } else {
-            undoBtn.disabled = true;
-        }
+        undoBtn.textContent = i18n[currentLang].btn_undo.replace('{b}', undoChances[1]).replace('{w}', undoChances[2]);
+        undoBtn.disabled = (undoChances[current] <= 0 || history.length === 0 || gameOver);
     };
 
     function checkWin(r, c, player) {
@@ -854,13 +591,8 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
         for (var d = 0; d < dirs.length; d++) {
             var count = 1;
             for (var s = -1; s <= 1; s += 2) {
-                var nr = r + dirs[d][0] * s;
-                var nc = c + dirs[d][1] * s;
-                while (nr >= 0 && nr < SIZE && nc >= 0 && nc < SIZE && board[nr][nc] === player) {
-                    count++;
-                    nr += dirs[d][0] * s;
-                    nc += dirs[d][1] * s;
-                }
+                var nr = r + dirs[d][0] * s, nc = c + dirs[d][1] * s;
+                while (nr >= 0 && nr < SIZE && nc >= 0 && nc < SIZE && board[nr][nc] === player) { count++; nr += dirs[d][0] * s; nc += dirs[d][1] * s; }
             }
             if (count >= 5) return true;
         }
@@ -870,66 +602,33 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     canvas.addEventListener('click', function (e) {
         if (gameOver) return;
         var rect = canvas.getBoundingClientRect();
-        var scaleX = canvas.width / rect.width;
-        var scaleY = canvas.height / rect.height;
-        var mx = (e.clientX - rect.left) * scaleX;
-        var my = (e.clientY - rect.top) * scaleY;
+        var mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+        var my = (e.clientY - rect.top) * (canvas.height / rect.height);
+        var c = Math.round((mx - PAD) / CELL), r = Math.round((my - PAD) / CELL);
+        if (r < 0 || r >= SIZE || c < 0 || c >= SIZE || board[r][c] !== 0) return;
 
-        var c = Math.round((mx - PAD) / CELL);
-        var r = Math.round((my - PAD) / CELL);
-        if (r < 0 || r >= SIZE || c < 0 || c >= SIZE) return;
-        if (board[r][c] !== 0) return;
-
-        // 落子
-        board[r][c] = current;
-        history.push({ r: r, c: c, player: current });
-        drawBoard();
+        board[r][c] = current; history.push({ r, c, player: current }); drawBoard();
 
         if (checkWin(r, c, current)) {
             gameOver = true;
-            var winKey = current === 1 ? 'turn_black' : 'turn_white';
-            // 借用翻译文字加上 获胜/win 字样
-            turnText.textContent = (currentLang === 'zh' ? (current === 1 ? '黑棋' : '白棋') + '获胜！' : (current === 1 ? 'Black' : 'White') + ' Wins!');
-            turnDot.style.background = 'transparent';
-            turnDot.style.borderColor = 'transparent';
-            window.updateGomokuUI(); // 更新按钮状态(禁用)
-            return;
+            turnText.textContent = currentLang === 'zh' ? (current === 1 ? '黑棋' : '白棋') + '获胜！' : (current === 1 ? 'Black' : 'White') + ' Wins!';
+            turnDot.style.background = 'transparent'; turnDot.style.borderColor = 'transparent';
+            window.updateGomokuUI(); return;
         }
-
-        current = current === 1 ? 2 : 1;
-        window.updateGomokuUI();
+        current = current === 1 ? 2 : 1; window.updateGomokuUI();
     });
 
-    // 悔棋逻辑
     undoBtn.addEventListener('click', function () {
         if (gameOver || history.length === 0 || undoChances[current] <= 0) return;
-
-        // 撤销最后一步
-        var lastMove = history.pop();
-        board[lastMove.r][lastMove.c] = 0;
-        
-        // 消耗悔棋次数
-        undoChances[current]--;
-        
-        // 因为刚才已经切换过回合，现在 current 就是想要悔棋的一方
-        // 撤销后，回合依然属于当前玩家（因为他要重新下）
-        
-        drawBoard();
-        window.updateGomokuUI();
+        var lastMove = history.pop(); board[lastMove.r][lastMove.c] = 0; undoChances[current]--;
+        drawBoard(); window.updateGomokuUI();
     });
 
     function reset() {
-        initBoard();
-        history = [];
-        current = 1;
-        gameOver = false;
-        undoChances = { 1: 1, 2: 1 };
-        drawBoard();
-        window.updateGomokuUI();
+        initBoard(); history = []; current = 1; gameOver = false; undoChances = { 1: 1, 2: 1 };
+        drawBoard(); window.updateGomokuUI();
     }
-
-    resetBtn.addEventListener('click', reset);
-    reset();
+    resetBtn.addEventListener('click', reset); reset();
 })();
 
 /* ============================================================
@@ -944,64 +643,36 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     var resetBtn = document.getElementById('snakeReset');
     var diffSelect = document.getElementById('snakeDifficulty');
 
-    var GRID = 20;
-    var CELL = canvas.width / GRID;
+    var GRID = 20, CELL = canvas.width / GRID;
     var snake, dir, nextDir, food, score, running, timer;
-    var speed = parseInt(diffSelect.value); // 从选择器读取速度
+    var speed = parseInt(diffSelect.value);
 
-    var best = 0;
-    try { best = parseInt(localStorage.getItem('mc_snake_best')) || 0; } catch (e) {}
+    var best = 0; try { best = parseInt(localStorage.getItem('mc_snake_best')) || 0; } catch (e) {}
     bestEl.textContent = best;
 
     function init() {
         snake = [{x: 10, y: 10}, {x: 9, y: 10}, {x: 8, y: 10}];
-        dir = {x: 1, y: 0};
-        nextDir = {x: 1, y: 0};
-        score = 0;
-        running = false;
-        scoreEl.textContent = 0;
-        placeFood();
-        draw();
-        window.updateSnakeUI(true);
+        dir = {x: 1, y: 0}; nextDir = {x: 1, y: 0};
+        score = 0; running = false; scoreEl.textContent = 0; placeFood(); draw(); window.updateSnakeUI(true);
     }
 
     function placeFood() {
         while (true) {
-            var f = {
-                x: Math.floor(Math.random() * GRID),
-                y: Math.floor(Math.random() * GRID)
-            };
-            var hit = snake.some(function (s) { return s.x === f.x && s.y === f.y; });
-            if (!hit) { food = f; return; }
+            var f = { x: Math.floor(Math.random() * GRID), y: Math.floor(Math.random() * GRID) };
+            if (!snake.some(s => s.x === f.x && s.y === f.y)) { food = f; return; }
         }
     }
 
     function draw() {
-        ctx.fillStyle = '#141414';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.strokeStyle = '#1e1e1e';
-        ctx.lineWidth = 0.5;
+        ctx.fillStyle = '#141414'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = '#1e1e1e'; ctx.lineWidth = 0.5;
         for (var i = 1; i < GRID; i++) {
-            ctx.beginPath();
-            ctx.moveTo(i * CELL, 0);
-            ctx.lineTo(i * CELL, canvas.height);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(0, i * CELL);
-            ctx.lineTo(canvas.width, i * CELL);
-            ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(i * CELL, 0); ctx.lineTo(i * CELL, canvas.height); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, i * CELL); ctx.lineTo(canvas.width, i * CELL); ctx.stroke();
         }
-
-        ctx.fillStyle = '#d9534f';
-        ctx.beginPath();
-        ctx.arc(food.x * CELL + CELL/2, food.y * CELL + CELL/2, CELL*0.35, 0, Math.PI*2);
-        ctx.fill();
-
+        ctx.fillStyle = '#d9534f'; ctx.beginPath(); ctx.arc(food.x * CELL + CELL/2, food.y * CELL + CELL/2, CELL*0.35, 0, Math.PI*2); ctx.fill();
         for (var i = 0; i < snake.length; i++) {
-            var s = snake[i];
-            var x = s.x * CELL, y = s.y * CELL;
-            var pad = i === 0 ? 1 : 2;
+            var s = snake[i], x = s.x * CELL, y = s.y * CELL, pad = i === 0 ? 1 : 2;
             ctx.fillStyle = i === 0 ? '#9ae850' : '#7ED321';
             ctx.fillRect(x + pad, y + pad, CELL - pad*2, CELL - pad*2);
         }
@@ -1009,148 +680,82 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
     function step() {
         if (!running) return;
-
-        if (nextDir.x !== -dir.x || nextDir.y !== -dir.y) {
-            dir = {x: nextDir.x, y: nextDir.y};
-        }
-
+        if (nextDir.x !== -dir.x || nextDir.y !== -dir.y) dir = {x: nextDir.x, y: nextDir.y};
         var head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
 
-        // 穿墙逻辑 (默认开启)
+        // 穿墙强制开启
         if (head.x < 0) head.x = GRID - 1;
         if (head.x >= GRID) head.x = 0;
         if (head.y < 0) head.y = GRID - 1;
         if (head.y >= GRID) head.y = 0;
 
-        // 撞自己判断
-        if (snake.some(function (s) { return s.x === head.x && s.y === head.y; })) {
-            gameOver();
-            return;
-        }
-
+        if (snake.some(s => s.x === head.x && s.y === head.y)) return gameOver();
         snake.unshift(head);
 
         if (head.x === food.x && head.y === food.y) {
-            score += 10;
-            scoreEl.textContent = score;
-            if (score > best) {
-                best = score;
-                bestEl.textContent = best;
-                try { localStorage.setItem('mc_snake_best', best); } catch (e) {}
-            }
+            score += 10; scoreEl.textContent = score;
+            if (score > best) { best = score; bestEl.textContent = best; try { localStorage.setItem('mc_snake_best', best); } catch (e) {} }
             placeFood();
-        } else {
-            snake.pop();
-        }
-
+        } else snake.pop();
         draw();
     }
 
     function gameOver() {
-        running = false;
-        clearInterval(timer);
-        startBtn.textContent = i18n[currentLang].btn_start; // 重置为开始按钮
-        window.updateSnakeUI(true);
-        
-        ctx.fillStyle = 'rgba(0,0,0,0.65)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#d9534f';
-        ctx.font = 'bold 22px "Segoe UI", "Microsoft YaHei", sans-serif';
-        ctx.textAlign = 'center';
+        running = false; clearInterval(timer); startBtn.textContent = i18n[currentLang].btn_start; window.updateSnakeUI(true);
+        ctx.fillStyle = 'rgba(0,0,0,0.65)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#d9534f'; ctx.font = 'bold 22px sans-serif'; ctx.textAlign = 'center';
         ctx.fillText(i18n[currentLang].game_over, canvas.width/2, canvas.height/2 - 10);
-        ctx.fillStyle = '#aaa';
-        ctx.font = '14px "Segoe UI", "Microsoft YaHei", sans-serif';
+        ctx.fillStyle = '#aaa'; ctx.font = '14px sans-serif';
         ctx.fillText(i18n[currentLang].final_score + ' ' + score, canvas.width/2, canvas.height/2 + 24);
     }
 
     function toggle() {
         if (running) {
-            running = false;
-            clearInterval(timer);
-            startBtn.textContent = i18n[currentLang].btn_continue;
-            window.updateSnakeUI();
+            running = false; clearInterval(timer); startBtn.textContent = i18n[currentLang].btn_continue; window.updateSnakeUI();
         } else {
-            // 如果已经死了，点击开始相当于重置再开始
-            if (startBtn.textContent === i18n[currentLang].btn_start || startBtn.textContent === '重新开始') {
-                init();
-            }
-            running = true;
-            startBtn.textContent = i18n[currentLang].btn_pause;
+            if (startBtn.textContent === i18n[currentLang].btn_start) init();
+            running = true; startBtn.textContent = i18n[currentLang].btn_pause;
             if (timer) clearInterval(timer);
-            speed = parseInt(diffSelect.value); // 每次开始读取最新难度
-            timer = setInterval(step, speed);
+            speed = parseInt(diffSelect.value); timer = setInterval(step, speed);
         }
     }
 
-    function reset() {
-        running = false;
-        clearInterval(timer);
-        init();
-    }
+    function reset() { running = false; clearInterval(timer); init(); }
 
-    // 动态更新贪吃蛇 UI 文字（用于语言切换）
     window.updateSnakeUI = function(isGameOver) {
-        if (running) {
-            startBtn.textContent = i18n[currentLang].btn_pause;
-        } else if (isGameOver) {
-            startBtn.textContent = i18n[currentLang].btn_start; 
-        }
-        // 如果在暂停状态，保留当前按钮文字（由 toggle 控制）
-        if (!running && startBtn.textContent !== i18n[currentLang].btn_start && startBtn.textContent !== '重新开始' && startBtn.textContent !== 'Pause' && startBtn.textContent !== '暂停' && startBtn.textContent !== 'Resume' && startBtn.textContent !== '继续') {
+        if (running) startBtn.textContent = i18n[currentLang].btn_pause;
+        else if (isGameOver) startBtn.textContent = i18n[currentLang].btn_start;
+        if (!running && startBtn.textContent !== i18n[currentLang].btn_start && startBtn.textContent !== '重新开始' && startBtn.textContent !== '暂停' && startBtn.textContent !== 'Pause' && startBtn.textContent !== 'Resume' && startBtn.textContent !== '继续') {
             startBtn.textContent = i18n[currentLang].btn_continue;
         }
     };
 
-    // 监听键盘
     document.addEventListener('keydown', function (e) {
-        var key = e.key;
-        // 只有弹窗打开且贪吃蛇面板激活时才响应
-        if (!document.getElementById('gameModal').classList.contains('show') || 
-            !document.getElementById('panel-snake').classList.contains('active')) return;
-
-        if (key === ' ' || key === 'Space') {
-            e.preventDefault();
-            toggle();
-            return;
-        }
-
+        if (!document.getElementById('gameModal').classList.contains('show') || !document.getElementById('panel-snake').classList.contains('active')) return;
+        if (e.key === ' ' || e.key === 'Space') { e.preventDefault(); toggle(); return; }
         var d = null;
-        if (key === 'ArrowUp' || key === 'w' || key === 'W') d = {x:0, y:-1};
-        else if (key === 'ArrowDown' || key === 's' || key === 'S') d = {x:0, y:1};
-        else if (key === 'ArrowLeft' || key === 'a' || key === 'A') d = {x:-1, y:0};
-        else if (key === 'ArrowRight' || key === 'd' || key === 'D') d = {x:1, y:0};
-
+        if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') d = {x:0, y:-1};
+        else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') d = {x:0, y:1};
+        else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') d = {x:-1, y:0};
+        else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') d = {x:1, y:0};
         if (d) {
             e.preventDefault();
-            if (d.x !== -dir.x || d.y !== -dir.y) {
-                nextDir = d;
-            }
+            if (d.x !== -dir.x || d.y !== -dir.y) nextDir = d;
             if (!running && startBtn.textContent !== i18n[currentLang].btn_pause) {
                 if (startBtn.textContent === i18n[currentLang].btn_start) init();
-                running = true;
-                startBtn.textContent = i18n[currentLang].btn_pause;
+                running = true; startBtn.textContent = i18n[currentLang].btn_pause;
                 if (timer) clearInterval(timer);
-                speed = parseInt(diffSelect.value);
-                timer = setInterval(step, speed);
+                speed = parseInt(diffSelect.value); timer = setInterval(step, speed);
             }
         }
     });
 
-    // 切换难度时，如果是运行状态，实时生效
     diffSelect.addEventListener('change', function() {
-        if (running) {
-            speed = parseInt(this.value);
-            clearInterval(timer);
-            timer = setInterval(step, speed);
-        }
+        if (running) { speed = parseInt(this.value); clearInterval(timer); timer = setInterval(step, speed); }
     });
 
-    startBtn.addEventListener('click', toggle);
-    resetBtn.addEventListener('click', reset);
-
-    init();
+    startBtn.addEventListener('click', toggle); resetBtn.addEventListener('click', reset); init();
 })();
 </script>
-
 </body>
 </html>
