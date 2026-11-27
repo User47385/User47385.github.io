@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="MCraft我的世界服务器常见问题解答（FAQ）">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Minecraft, MC服务器, MCraft, FAQ, 常见问题">
+    <title>MCraft服务器官网 | 常见问题 FAQ</title>
+    <style>
+        /* 基础重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-image: url('/bj.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #1a1a1a;
+            
+            color: #d0d0d0;
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            line-height: 1.7;
+            padding: 0 16px 40px;
+            overflow-x: hidden;
+        }
+
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* ---------- 语言切换 ---------- */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 16px;
+            font-size: 0.8rem;
+            color: #aaa;
+            user-select: none;
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 10;
+        }
+        .lang-switch span { cursor: pointer; transition: color 0.2s; }
+        .lang-switch span:hover { color: #9ae850; }
+        .lang-switch span.active { color: #fff; font-weight: bold; }
+        .lang-switch .divider { margin: 0 8px; color: #555; cursor: default; }
+
+        /* ---------- 顶部标题 ---------- */
+        .page-header {
+            padding: 48px 0 32px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 32px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .page-header h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #7ED321;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        .page-header .sub {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-top: 6px;
+        }
+
+        /* ---------- 通用区块 ---------- */
+        section { margin-bottom: 36px; }
+
+        .sec-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* ---------- FAQ 卡片 ---------- */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 20px 22px;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .faq-item:hover {
+            border-color: #7ED321;
+            background: rgba(45, 45, 45, 0.9);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .faq-question .q-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: #7ED321;
+            color: #1a1a1a;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-top: 2px;
+        }
+
+        .faq-answer {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: #bbb;
+            line-height: 1.7;
+        }
+
+        .faq-answer .a-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: rgba(126, 211, 33, 0.15);
+            color: #9ae850;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            border: 1px solid rgba(126, 211, 33, 0.3);
+            margin-top: 2px;
+        }
+
+        .faq-answer a {
+            color: #9ae850;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        .faq-answer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* ---------- 返回链接 ---------- */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 40px;
+            padding: 10px 20px;
+            background: rgba(33, 33, 33, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: border-color 0.15s, background 0.15s;
+            cursor: pointer;
+        }
+        .back-link:hover {
+            border-color: #7ED321;
+            background: rgba(45, 45, 45, 0.9);
+            color: #fff;
+        }
+
+        /* ---------- 页脚 ---------- */
+        footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75rem;
+            color: #999;
+            text-align: center;
+            line-height: 1.9;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+        footer .disclaimer { color: #777; }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .faq-item { padding: 16px 18px; }
+            .faq-question { font-size: 0.95rem; }
+            .faq-answer { font-size: 0.88rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="lang-switch">
+        <span id="btn-zh" class="active" onclick="switchLang('zh')">简体中文</span>
+        <span class="divider">|</span>
+        <span id="btn-en" onclick="switchLang('en')">English</span>
+    </div>
+
+    <header class="page-header">
+        <h1><span data-i18n="faq_title">常见问题</span> <span style="color:#9ae850;">FAQ</span></h1>
+        <div class="sub"><span data-i18n="faq_sub">关于 MCraft 服务器，你想知道的都在这里。</span></div>
+    </header>
+
+    <section>
+        <div class="sec-title" data-i18n="sec_faq">问答列表</div>
+        <div class="faq-list">
+
+            <!-- Q1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-badge">Q</span>
+                    <span data-i18n="q1">服务器支持基岩版进入吗？</span>
+                </div>
+                <div class="faq-answer">
+                    <span class="a-badge">A</span>
+                    <span data-i18n="a1">因为暂时没有需要，所以没有添加基岩版互通，如有基岩版进入需求请加入官方QQ群 <a href="https://qm.qq.com/cgi-bin/qm/qr?k=RoM2_DCrIUTnKMe-R2A-8MHvZVnI10Le&jump_from=webapi&authKey=PfL/1h9gmo0ecQPOaQTih21a6IHdrPreLiCSjHaIckvBZds7G5Z54LaAr4CR/HIP" target="_blank" rel="noopener noreferrer">727964315</a> 提出。</span>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-badge">Q</span>
+                    <span data-i18n="q2">为什么有时候进去了别的服务器？</span>
+                </div>
+                <div class="faq-answer">
+                    <span class="a-badge">A</span>
+                    <span data-i18n="a2">服务器是 SRV 记录，请注意：<strong style="color:#fff;">不要指定端口（带 :25565）</strong>，直接输入 <code style="font-family:Consolas,monospace; background:rgba(26,26,26,0.8); padding:2px 6px; border-radius:3px; border:1px solid rgba(255,255,255,0.1); color:#9ae850;">mc.aach.top</code> 即可进入！</span>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-badge">Q</span>
+                    <span data-i18n="q3">服务器会随意删档吗？</span>
+                </div>
+                <div class="faq-answer">
+                    <span class="a-badge">A</span>
+                    <span data-i18n="a3">不会的，服务器有长期运营的经验及数据保护的能力，不会随意删档。</span>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="q-badge">Q</span>
+                    <span data-i18n="q4">我如何提出问题 / 建议？</span>
+                </div>
+                <div class="faq-answer">
+                    <span class="a-badge">A</span>
+                    <span data-i18n="a4">可加入官方QQ群 <a href="https://qm.qq.com/cgi-bin/qm/qr?k=RoM2_DCrIUTnKMe-R2A-8MHvZVnI10Le&jump_from=webapi&authKey=PfL/1h9gmo0ecQPOaQTih21a6IHdrPreLiCSjHaIckvBZds7G5Z54LaAr4CR/HIP" target="_blank" rel="noopener noreferrer">727964315</a> / 邮件 <a href="mailto:3831441220@qq.com">3831441220@qq.com</a>！我们欢迎提出意见！</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a class="back-link" href="/" data-i18n="back_home">← 返回首页</a>
+
+    <footer>
+        <div>Copyright © 2026 MCraft Server.All Rights Reserved.</div>
+        <div class="disclaimer" data-i18n="footer_disclaimer">本网站完全由 AI 开发，不喜勿喷。</div>
+    </footer>
+</div>
+
+<script>
+/* ============================================================
+   国际化 (i18n) 语言切换
+   ============================================================ */
+const i18n = {
+    zh: {
+        faq_title: "常见问题",
+        faq_sub: "关于 MCraft 服务器，你想知道的都在这里。",
+        sec_faq: "问答列表",
+        q1: "服务器支持基岩版进入吗？",
+        a1: "因为暂时没有需要，所以没有添加基岩版互通，如有基岩版进入需求请加入官方QQ群 727964315 提出。",
+        q2: "为什么有时候进去了别的服务器？",
+        a2: "服务器是 SRV 记录，请注意：不要指定端口（带 :25565），直接输入 mc.aach.top 即可进入！",
+        q3: "服务器会随意删档吗？",
+        a3: "不会的，服务器有长期运营的经验及数据保护的能力，不会随意删档。",
+        q4: "我如何提出问题 / 建议？",
+        a4: "可加入官方QQ群 727964315 / 邮件 3831441220@qq.com！我们欢迎提出意见！",
+        back_home: "← 返回首页",
+        footer_disclaimer: "本网站完全由 AI 开发，不喜勿喷。"
+    },
+    en: {
+        faq_title: "FAQ",
+        faq_sub: "Everything you want to know about MCraft server.",
+        sec_faq: "Questions & Answers",
+        q1: "Does the server support Bedrock Edition?",
+        a1: "There is no need for now, so Bedrock cross-play is not added. If you need to join with Bedrock Edition, please join the official QQ group 727964315 and request.",
+        q2: "Why do I sometimes end up on a different server?",
+        a2: "The server uses an SRV record. Please note: do NOT specify a port (with :25565). Just enter mc.aach.top directly!",
+        q3: "Will the server be wiped randomly?",
+        a3: "No. The server has long-term operation experience and data protection capabilities, and will not be wiped randomly.",
+        q4: "How can I submit questions / suggestions?",
+        a4: "Join the official QQ group 727964315 / email 3831441220@qq.com! We welcome your feedback!",
+        back_home: "← Back to Home",
+        footer_disclaimer: "This website is completely developed by AI."
+    }
+};
+
+let currentLang = 'zh';
+
+function switchLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+    });
+}
+</script>
+</body>
+</html>
